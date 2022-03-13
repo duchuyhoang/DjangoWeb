@@ -1,0 +1,22 @@
+.contactActionHeader{
+    border-bottom: 2px solid #e8e8e9;
+        color: #333;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        padding-bottom: 8px;
+        text-transform: uppercase;
+}
+.contactInfoItem{
+    margin-top:10px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8e8e9;
+}
+.contactInfoItem i{
+    margin-right: 15px;
+}
+.contactInfoItem b{
+    margin-right: 5px;
+}

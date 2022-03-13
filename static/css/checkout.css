@@ -1,0 +1,154 @@
+#checkoutContainer {
+    font-family: 'Rufina', serif;
+}
+
+#checkoutContainer h1,
+h2 {
+    text-transform: uppercase;
+}
+
+#billingContainer {
+    margin-top: 70px
+}
+
+#billingContainer h3 {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#billingContainer {
+    color: #333;
+}
+
+#billingForm label {
+    color: #333;
+    display: block;
+    font-size: 16px;
+    margin: 0 0 5px;
+    font-family: 'Rufina', serif;
+    font-weight: 400;
+}
+
+.selectize-dropdown .create {
+    display: none;
+}
+.selectize-dropdown-content .option{
+    border-bottom: none!important;
+}
+
+#orderDetail {
+    background: #f2f2f2 none repeat scroll 0 0;
+    /* padding-top:20px */
+}
+
+.table thead th {
+    text-align: center;
+}
+
+.table td,
+th {
+    text-align: center !important;
+
+}
+
+.tableHeader {
+    font-size: 14px;
+    padding: 15px 0;
+    text-align: center;
+    color: #333;
+    font-family: 'Rufina', serif;
+    font-weight: 400;
+}
+
+.table .itemName {
+    font-size: 16px;
+    padding: 15px 0;
+    text-align: center;
+    color: #333;
+    font-family: 'Rufina', serif;
+    font-weight: 400;
+    text-transform: none
+}
+
+.table th {
+    /* border-top: none!important; */
+    text-transform: uppercase;
+}
+
+.table .orderName,
+.orderValue {
+    font-size: 18px;
+}
+
+.table .orderName{
+    color:#333;
+    font-weight: 400;
+}
+
+.table .orderValue {
+    color: #ec4445!important;
+    font-size: 20px;
+    font-weight: 400;
+}
+.checkoutButtonContainer{
+    flex:1;   
+    display:flex;
+    flex-direction: column-reverse;
+    padding-bottom: 1.5rem;
+}
+.checkoutButton{
+    background: #ec4445 none repeat scroll 0 0;
+    border: medium none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    height: 50px;
+    margin: 20px 0 0;
+    padding: 0;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+    width: 100%;
+    font-family: 'Rufina', serif;
+    font-weight: 400;
+}
+.checkoutButton:hover{
+    background: #e61719 none repeat scroll 0 0;
+}
+.checkoutDifferentContainer{
+    display: flex;
+    margin-top:30px;
+}
+
+.checkoutDifferentContainer .title{
+    color: #333;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.checkoutDifferentContainer .text{
+
+}
+.checkoutDifferentContainer .product{
+
+}
+
+.checkoutDifferentContainer table{
+width: 100%;
+margin-bottom: 50px;
+}
+.checkoutDifferentContainer table th{
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 1em;
+}
+
+.checkoutDifferentContainer .product .productImg{
+    height:50px;
+    width: 50px;
+}
+.checkoutDifferentContainer .product td{
+    text-align: center;
+    padding:10px 0px;
+    border-bottom: 1px solid #e6e6e6;
+}
+.checkoutDifferentContainer .product td p{
+    margin-block-end:0;
+}

@@ -1,0 +1,59 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+}
+
+.myAccountHeader {
+    color: #333;
+    font-family: 'Rufina', serif;
+    font-weight: 400;
+}
+
+.myAccountTab {
+    display: flex;
+    flex-direction: column;
+}
+
+.myAccountTab .myAccountTabItem {
+    border: 1px solid #efefef!important;
+    border-bottom: none;
+    color: #222222;
+    font-weight: 400;
+    font-size: 15px;
+    display: block;
+    padding: 10px 15px;
+    text-transform: capitalize;
+    text-decoration: none !important;
+}
+
+.myAccountTab .myAccountTabItem:last-child {
+    /* border-bottom: 1px solid #efefef; */
+}
+
+
+.myAccountTab .myAccountTabItem:hover {
+    color: #fff;
+    background-color: #f07c29;
+}
+
+.myAccountTab .myAccountTabItem.active{
+    color: #fff!important;
+    background-color: #f07c29!important;
+}
+
+
+.myAccountTab .myAccountTabItem:hover i,.myAccountTabItem.active i{
+    color: #fff !important;
+}
+
+.myAccountTab .myAccountTabItem i {
+    margin-right: 10px;
+}
+
+.myAccountContainer {
+    border: 1px solid #efefef;
+    padding: 30px;
+}
+#userDistrict+.selectize-control .selectize-dropdown{
+top:-470%
+}

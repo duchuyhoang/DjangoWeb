@@ -1,0 +1,52 @@
+.tab {
+    overflow: hidden;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none!important;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 16px;
+    position: relative;
+    color:#333;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .tab button::before{
+      content: "";
+      position: absolute;
+      width: 100%;
+      border-bottom:2px solid #f07c29;
+      bottom:3px;
+      left:0;
+      transition: 0.4s;
+      visibility: hidden;
+      opacity: 1;
+  }
+ 
+  .tab button:hover:before{
+    visibility: visible;
+    opacity: 1;
+    bottom:13px;
+  }
+
+  /* Create an active/current tablink class */
+  .tab button.active::before {
+    visibility: visible;
+    opacity: 1;
+    bottom:13px;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    /* border: 1px solid #ccc; */
+    border-top: none;
+  }

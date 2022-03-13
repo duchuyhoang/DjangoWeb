@@ -1,0 +1,455 @@
+#service {
+    padding: 5px;
+}
+
+.service {
+    padding: 5px;
+}
+
+.serviceHeader {
+    color: #222;
+    font-family: "Rufina", serif;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.serviceDescription {
+    color: #333;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.bgSlide {
+    height: 100vh;
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bgSlide1 {
+    background-image: url("../img//bg1.jpg");
+}
+
+.bgSlide2 {
+    background-image: url("../img//bg2.jpg");
+}
+
+.slideBtn {
+    outline: none !important;
+}
+
+.slideContent {
+    position: absolute;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* left:15%; */
+    top: 20%;
+    font-family: 'Rufina', serif;
+    font-weight: 400;
+}
+
+.slideContent .slideHeader {
+    color: #fff;
+    font-size: 80px;
+}
+
+.slideContent .slideHeader2 {
+    color: #333;
+    font-size: 80px;
+}
+
+.slideContent button {
+    background: #f07c29 none repeat scroll 0 0;
+    border: 2px solid #d6681b;
+    border-radius: 4px;
+    color: #fff;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 34px;
+    margin-top: 43px;
+    padding: 10px 38px;
+    text-transform: none;
+    font-family: 'Rufina', serif;
+    font-weight: 400;
+    text-decoration: none;
+    box-shadow: 2px 2px 2px 2px #a8c0ba;
+}
+
+.owl-nav {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.owl-nav button {
+    outline: none !important;
+}
+
+.owl-carousel .navButton {
+    color: #fff !important;
+    border: none !important
+}
+
+.owl-carousel .owl-nav .fa-angle-left {
+    margin-left: 10px;
+}
+
+.owl-carousel .owl-nav .fa-angle-right {
+    margin-right: 10px;
+}
+
+.owl-dots {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+}
+
+.owl-dots button.owl-dot {
+    width: 15px;
+    height: 15px;
+    background: #fff !important;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+    outline: none !important
+}
+
+.owl-dots button.owl-dot.active {
+    width: 35px;
+    border-radius: 5px !important;
+    background: #f07c29 !important;
+}
+
+#top {
+    margin-top: 70px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+}
+
+#top .header {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 30px;
+    position: relative;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#top .subHeader {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 24px;
+    margin-bottom: 0;
+    font-family: 'Rufina', serif;
+    color: #333;
+}
+
+#lastTweet {
+    background: #eee;
+}
+
+#lastTweet .jumbotron {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-radius: 0px;
+    background: transparent;
+}
+
+.avatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #f07c29;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#social .avatar {
+    background: #fff;
+}
+
+#social .avatar:hover i {
+    color: #fff !important;
+}
+
+#social .avatar:hover {
+    background: black;
+}
+
+#hotDeal {
+    background-image: url("../img/homeBannerBg.jpg");
+    background-size: cover;
+    /* height: */
+}
+
+#banner .banner {
+    background-image: url("../img/banner.jpg");
+    height: 120px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#banner:hover img {
+    transform: scale(1.1);
+}
+
+.banner-text {
+    top: 0;
+    color: #fff;
+    text-decoration: none;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.banner-text-2 {
+    top: 20px;
+    left: 100px;
+    color: #fff;
+    text-decoration: none;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#bestSelling {
+    margin-top: 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.authorInfomation .authorName {
+    color: #f07c29;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: right;
+    font-family: 'Rufina', serif;
+    font-weight: 400;
+}
+
+.authorInfomation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.authorDescription {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 35px;
+    text-align: right;
+    font-family: "Rufina", serif;
+    color: #333;
+}
+
+.blockLetter {
+    background-image: url("../img/letterBg.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    padding: 45px 25px 25px;
+    position: relative;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.blockLetter h2 {
+    color: #fff;
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+}
+
+.blockLetter input {
+    background: rgba(255, 255, 255, 0.1) none repeat scroll 0 0;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 400;
+    height: 38px;
+    line-height: 30px;
+    padding: 10px;
+    width: 100%;
+    outline: none !important;
+}
+
+.blockLetter input::placeholder {
+    color: #fff
+}
+
+.blockLetter button {
+    background: #fff;
+    color: black;
+}
+
+.blockLetter ::before {
+    background: #f07c29 none repeat scroll 0 0;
+    border-radius: 100%;
+    content: "";
+    height: 13px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: -42px;
+    width: 13px;
+    z-index: 1;
+}
+
+.blockLetter::after {
+    background: #fff none repeat scroll 0 0;
+    border: 2px solid #f07c29;
+    content: "";
+    height: 53px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: -26px;
+    transform: rotate(45deg);
+    width: 53px;
+    z-index: -1;
+}
+
+#newArrivalSlide .owl-dot,
+#onSaleSlide .owl-dot,
+#productSlide .owl-dot {
+    display: none;
+}
+
+/* {
+    display: none;
+}
+ {
+    display: none;
+} */
+ .bookPriceActual {
+    color: #666;
+    font-size: 18px;
+    font-weight: 400;
+    margin-left: 5px;
+    text-decoration: line-through;
+    font-style: italic;
+}
+#newArrivalSlide .owl-nav.disabled,
+#onSaleSlide .owl-nav.disabled,
+#productSlide .owl-nav.disabled {
+    display: flex;
+}
+
+#newArrivalSlide .newArrivalNavButton,
+#onSaleSlide .newArrivalNavButton,
+#productSlide .newArrivalNavButton {
+    background: #f6f6f6 none repeat scroll 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    height: 35px;
+    width: 35px;
+    border-radius: 5px;
+    color: #666 !important;
+}
+
+#newArrivalSlide .newArrivalNavButton:hover,
+#onSaleSlide .newArrivalNavButton:hover,
+#productSlide .newArrivalNavButton:hover {
+    background-color: #f07c29;
+    color: #fff !important;
+}
+
+/* #newArrivalSlide .owl-stage { */
+    /* transition: all 1s ease 0s!important; */
+/* } */
+
+.navRightButton {
+    transform: translateX(-10px);
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.navLeftButton {
+    transform: translateX(10px);
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.owl-carousel:hover .navRightButton {
+    transform: translateX(0px);
+    visibility: visible;
+
+}
+
+.owl-carousel:hover .navLeftButton {
+    transform: translateX(0px);
+    visibility: visible;
+
+}
+
+#newArrivalSlide .owl-nav {
+    top: 53%
+}
+
+#bookByCategory {
+    margin-top: 30px
+}
+
+.authorBookWrapper {
+    width: 220px;
+    height: 280px
+}
+
+#authorSlide .owl-stage {
+    display: flex;
+    width: 100% !important;
+}
+
+#authorSlide .owl-stage .owl-item {
+    width: auto !important;
+}
+
+#authorSlide .owl-stage .bookWrapper {
+    width: 220px;
+}
+
+#authorSlide .owl-nav{
+top:35%
+}
+
+.authorSlideBtn {
+    background: #f6f6f6 none repeat scroll 0 0;
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    height: 35px;
+    width: 35px;
+    border-radius: 5px;
+    color: #666 !important;
+}
+
+.authorSlideBtn:hover {
+    background-color: #f07c29;
+    color: #fff !important;
+}

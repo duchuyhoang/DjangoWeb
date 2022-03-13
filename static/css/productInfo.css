@@ -1,0 +1,386 @@
+#productInfo {
+    font-family: 'Rufina', serif;
+}
+
+.carousel-inner {
+    width: 318px;
+    background-color: #000000;
+}
+
+.carousel-item img {
+    height: 400px;
+}
+
+#productSlide {
+    max-width: 318px;
+    /* height: 400px */
+}
+
+.slideIcon {
+    height: 70px;
+    width: 70px;
+    color: black;
+    background-image: none;
+}
+
+.carousel-control-prev-icon {}
+
+.carousel-control-next,.carousel-control-prev {
+    visibility: hidden;
+    transition:0.2s all;
+    /* right:35px; */
+}
+.carousel-control-next{
+    transform: translateX(50px);
+
+}
+.carousel-control-prev {
+transform: translateX(-50px);
+}
+.carousel-inner:hover .carousel-control-next{
+    transform: translateX(0px);
+    visibility: visible;
+}
+.carousel-inner:hover .carousel-control-prev{
+    transform: translateX(0px);
+    visibility: visible;
+}
+
+.bookName {
+    color: #333333;
+    font-size: 36px;
+    font-weight: 400;
+    margin: 15px 0 9px;
+    padding: 0;
+    text-transform: capitalize;
+    font-family: 'Rufina', serif;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bookStatusInfo {
+    border-bottom: 1px solid #e5e5e5;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.bookStatusInfo span {
+    margin-left: 7px;
+    margin-right: 7px;
+    ;
+}
+
+.bookStatusInfo span:first-child {
+    margin-left: 0px;
+}
+
+.bookPriceContainer {
+    font-weight: 400;
+    font-size: 25px;
+    padding: 20px 0px;
+}
+
+.bookPriceExpected {
+    color: #f07c29;
+}
+
+.bookPriceActual {
+    color: #909090;
+    text-decoration: line-through;
+}
+
+.bookReview {
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e5e5;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.bookReview span {
+    display: flex;
+    align-items: center;
+}
+
+.bookReview ul.star li {
+    padding: 2px;
+}
+
+.bookReview ul.star li:first-child {
+    margin-left: 0px;
+}
+
+.reviewCount {
+    padding-right: 3px;
+    border-right: 1px solid black;
+}
+
+#productQuantity {
+    padding: 0px 15px;
+    width: 70px;
+    background: #333 none repeat scroll 0 0;
+    color: #fff;
+    border: none
+}
+
+.iconButton {
+    background: #333 none repeat scroll 0 0;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 7px;
+    cursor: pointer;
+}
+
+.iconButton:hover {
+    background-color: #f07c29;
+}
+
+.iconButton:first-child {
+    margin-left: 0px
+}
+
+.iconButton i {
+    color: #fff !important;
+}
+
+
+#addToCartBtn {
+    background: #333 none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 28px;
+    text-transform: uppercase;
+    width: auto;
+    transition: .3s;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#addToCartBtn:hover {
+    background-color: #f07c29;
+
+}
+
+
+.productDescription {
+    clear: both;
+    color: #333;
+    font-weight: 400;
+    line-height: 28px;
+    margin: 10px 0 0;
+    padding: 30px 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.indicatorWrapper {
+    width: 25% !important;
+    min-width: 0px !important;
+}
+
+.carousel-indicators .active {
+    border: 1px solid red !important;
+    opacity: 1;
+    padding: 4px 0px;
+}
+
+.indicatorImg {
+    width: 100%;
+    height:100px;
+}
+
+.carousel-indicators {
+    /* justify-content: flex-end !important; */
+    margin: 0px;
+    position: initial;
+    top: 0px;
+
+    /* height:0px */
+}
+
+.carousel-indicators li {
+    text-indent: initial !important;
+    padding: 0px;
+    height: 100%
+}
+
+#relatedProduct {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#relatedProduct h4 {
+    color: #3f3f3f;
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    position: relative;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.relatedProductSlide {
+    display: flex;
+    flex-direction: column;
+}
+
+.relatedProductSlide .bookCategoryItem {
+    padding: 20px 0px;
+}
+
+.relatedProductSlide .bookCategoryItem:not(:last-child) {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+#productInfoTab .nav-tabs {
+    border-bottom: 0px;
+}
+
+#productInfoTab .tab-pane {
+    border: 1px solid #dee2e6;
+    padding: 10px
+}
+
+#productInfoTab ul li a {
+    color: black !important;
+    ;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#productInfoTab ul li {
+    padding: 0px;
+    margin-left: 0px;
+}
+
+.nav-item button {
+    width: 100%;
+}
+
+#productInfoTab .nav-item {
+    border-radius: 0px !important;
+    background-color: #fcfcfc;
+}
+
+#productInfoTab .nav-link {
+    color: black;
+}
+
+#productInfoTab .nav-tabs .nav-link.active {
+    background-color: #f07c29;
+    color: #fff;
+}
+
+#productInfoTab .nav-item:hover .nav-link {
+    background-color: #f07c29;
+    color: #fff;
+}
+
+#productInfoTab .nav-item:hover a {
+    color: #fff !important;
+}
+
+
+#productInfoTab .nav-tabs .nav-link {
+    border-radius: 0px;
+
+}
+
+#productInfoTab .reviewContainer {
+    margin-top: 30px;
+}
+
+.reviewContentList {
+    max-height: 1000px;
+    overflow-y: auto;
+}
+
+.reviewContainer h3 {
+    width: max-content;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.reviewContainer .review {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.reviewContainer .review:first-child {
+    margin-top: 30px;
+}
+
+
+.reviewContainer .review:not(:last-child) {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.review .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.commentInfo {
+    margin-left: 10px;
+    width: 200px;
+}
+
+.review .name {
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.review .content{
+    padding:5px;
+}
+
+.input-group-prepend {
+    margin-right: 30px;
+}
+
+.input-group-prepend .input-group-text {
+    background: transparent;
+    border: none;
+}
+
+.submitPreviewBtn {
+    background: #f2f2f2 none repeat scroll 0 0;
+    border: 1px solid #cdcdcd;
+    color: #555;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-left: 30px;
+}
+
+.saleImageWrapper {
+
+    width: 270px;
+    border-radius: 5px;
+}
+
+.saleImageWrapper img {
+    transition: 0.3s;
+}
+
+.saleImageWrapper a {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display:block
+}
+
+.saleImageWrapper:hover img {
+    transform: scale(1.1);
+}

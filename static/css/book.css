@@ -1,0 +1,130 @@
+.bookWrapper {
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 220px;
+    /* max-height: 280px;    */
+    cursor: pointer;
+    position: relative;
+}
+
+.bookWrapper .tagContainer{
+    position: absolute;
+    top:0px;
+    left:7px;
+    color:#fff;
+}
+
+/* .bookWrapper .bookView{
+    height:100%;
+    width: 100%;
+    background:rgba(255, 255, 255, 0.61) none repeat scroll 0 0;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition:0.5s;
+    transform:scaleY(0);
+    transform-origin: 0 0;
+    top:0px;
+    left:0px;
+}
+.bookWrapper:hover .bookView{
+    visibility: visible;
+    opacity: 1;
+    transform:scaleY(1);
+} */
+
+.bookWrapper .bookImg {
+    height: 80%;
+    width: 95%;
+    position: relative;
+}
+.bookImg img{
+    /* height: 100%; */
+    height: 250px !important;
+    width: 100%;
+}
+
+ 
+
+
+.bookImg .bookView{
+    height:100%;
+    width: 100%;
+    background:rgba(255, 255, 255, 0.61) none repeat scroll 0 0;
+    position: absolute;
+    visibility: hidden;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    opacity: 0;
+    transition:0.5s;
+    transform:scaleY(0);
+    transform-origin: 0 0;
+    top:0px;
+    left:0px;
+}
+
+.bookWrapper:hover .bookView{
+    visibility: visible;
+    opacity: 1;
+    transform:scaleY(1);
+}
+
+.bookImg .bookView:hover{
+    visibility: visible;
+    opacity: 1;
+    transform:scaleY(1);
+}
+
+.bookView .bookIconWrapper{
+    height:50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f07c29;
+}
+
+
+
+.bookWrapper .bookDetail {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    font-family: 'Rufina', serif;
+}
+
+.bookDetail .bookName {
+    color: #333333;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    overflow: hidden;
+    padding: 0;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: calc(100% - 20px);
+    margin:0px 10px;
+}
+
+.bookDetail .bookPrice{
+    font-family: 'Rufina', serif;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 600;
+    color: #f07c29;
+    margin-left: 10px;
+}
+
+.sale{
+    background:#EEB900;
+}
+.new{
+    background:#F07C29
+}

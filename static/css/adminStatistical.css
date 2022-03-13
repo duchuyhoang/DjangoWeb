@@ -1,0 +1,77 @@
+#STATISTICAL {}
+
+#STATISTICAL h3 {}
+
+#STATISTICAL .row{
+    margin:0px;
+}
+
+#STATISTICAL .statisticalContent {}
+
+.statisticalContent .statisticalCard {
+    border-radius: 0.7rem;
+    display: flex;
+    padding: 2rem;
+    background-color: #222;
+    color: #fff;
+    margin-top: 1rem;
+    height: 100%;
+}
+
+.statisticalCard .iconWrapper {
+    background: #f07c29;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.statisticalCard .iconWrapper i {
+    color: #fff;
+}
+
+.statisticalCard .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    /* margin-left: 1rem; */
+}
+
+.statisticalCard .contentWrapper p {
+    margin-bottom: 0px;
+    word-break: break-all;
+    font-weight: 800;
+}
+
+.statisticalCard .contentWrapper p:first-child {
+    color: #7c8db5 !important;
+}
+.profitChart{
+    border-radius: 0.7rem;
+    background-color: #222;
+    color:#fff;
+    padding:1rem;
+    margin-right: 0px;
+}
+
+.smChart{
+    height:400px;
+    padding:10px;
+    background-color: #222;
+    border-radius: 0.7rem;
+}
+.smChart h4{
+    color:#fff;
+}
+
+.smChart .chartWrapper{
+    height:90%
+}
+
+/* . */
+
+
+/* #STATISTICAL  */

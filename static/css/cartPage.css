@@ -1,0 +1,109 @@
+.cartPageHeader {
+    color: #333;
+    font-family: 'Rufina', serif;
+    font-weight: 400;
+}
+.table-wrapper{
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: clip;
+    border-bottom: 1px solid #dee2e6;
+}
+tbody tr td:nth-child(2) {
+    height: 150px;
+    /* width: ; */
+}
+
+tbody tr td:nth-child(2) img {
+    height: 100%;
+}
+
+tbody tr th,
+td {
+    vertical-align: middle !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 2px solid #dee2e6;
+    text-align: center;
+}
+
+tbody tr td:nth-child(3) {
+    max-width: 250px;
+}
+
+tbody tr td:nth-child(4) {
+    max-width: 50px;
+}
+
+tbody tr td:nth-child(6) {
+    max-width: 250px;
+}
+
+tbody tr td:nth-child(7) {
+    vertical-align: middle !important;
+    text-align: center;
+}
+.lastRow{
+    height:50px;
+    border-left: 2px solid #dee2e6;
+}
+
+.deleteIcon:hover{
+    color: red !important;
+    cursor: pointer;
+}
+.table{
+    margin-bottom:  0px !important;;
+}
+
+.quantityInput {
+    padding: 10px;
+    background: #e5e5e5 none repeat scroll 0 0;
+    border: none;
+    border-radius: 3px;
+    color: #6f6f6f;
+    font-size: 18px;
+}
+.couponInput{
+    width: 170px!important;
+    margin-right: 5px;
+}
+
+#bill{
+    font-family: "Rufina", serif;
+    text-align: right;
+    /* display: flex;
+    flex-direction: row-reverse; */
+}
+#bill h2{
+    width: max-content;
+    border-bottom: 2px solid #333;
+    float:right
+}
+.billIntoItem{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.billIntoItem .itemName{
+    border: medium none;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0 20px 12px 0;
+    text-align: right;
+    text-transform: uppercase;
+    vertical-align: top;
+    color: #777;
+    font-family: 'Rufina', serif;
+    font-weight: 400;
+    color: #333;
+}
+
+.itemTotal p{
+    font-size:20px!important;
+}
+.billIntoItem .itemMoney{
+color:#ec4445
+}
+

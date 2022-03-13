@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'home'
+    'home',
+    'product',
+    'user',
+    'BaseView',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +68,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
-		# 'homeTemp':'home.templates.index.html'
+        # 'homeTemp':'home.templates.index.html'
     },
 ]
 
@@ -80,14 +83,10 @@ COMPRESS_PRECOMPILERS = (
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ecommerceProjectNhom',
-		'USER': 'postgres',
-		'PASSWORD': 'H1u2y3123',
-		'HOST': 'localhost',
-		'PORT': '5432',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
 
 
@@ -128,3 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]

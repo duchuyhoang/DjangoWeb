@@ -1,6 +1,8 @@
 from django.urls import path, include
-from .views import ProductView
+from . import views
+
 
 urlpatterns = [
-    path('', ProductView.as_view(), name='index'),
+    path('', views.get, name='index'),
+    path('infor/<int:id>', views.getInfor),
 ]

@@ -1,4 +1,5 @@
 from asyncio.windows_events import NULL
+from pickle import TRUE
 from threading import local
 from unicodedata import category
 from django.db import models
@@ -135,6 +136,8 @@ class Book(models.Model):
     publisher = models.ForeignKey(
         Publisher, on_delete=models.SET_NULL, null=True)
     category = models.ManyToManyField(Category)
+    price = models.FloatField(default=0)
+    salePrice = models.FloatField(default=0)
 
     class Meta:
         db_table = "book"
@@ -219,3 +222,12 @@ class Order(models.Model):
 
     def __str__(self):
         return "Order "+str(self.idOrder)
+
+class BookImage(models.Model):
+    idBookImage = models.AutoField(primary_key=TRUE)
+    idBook = models.ForeignKey(
+        Book, null=True, on_delete=models.SET_NULL
+    )
+    image = models.ImageField(null=True,upload_to="uploads/")
+    class Meta:
+        db_table = "book_image"

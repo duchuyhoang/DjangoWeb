@@ -1,9 +1,11 @@
 from asyncio.windows_events import NULL
+from email.policy import default
 from pickle import TRUE
 from threading import local
 from unicodedata import category
 from django.db import models
-
+from django.contrib.auth.models import User
+import datetime
 # Create your models here.
 
 
@@ -47,8 +49,8 @@ class Ward(models.Model):
     id = models.CharField(max_length=8, unique=True, primary_key=True)
     name = models.TextField()
     type = models.TextField()
-    province = models.ForeignKey(Province, on_delete=models.CASCADE,null=True)
-    district = models.ForeignKey(District, on_delete=models.CASCADE,null=True)
+    province = models.ForeignKey(Province, on_delete=models.CASCADE, null=True)
+    district = models.ForeignKey(District, on_delete=models.CASCADE, null=True)
 
     class Meta:
         db_table = 'ward'
@@ -73,21 +75,21 @@ class Address(models.Model):
         return "Province:"+self.province.name + " District:" + self.district.name + " Ward:"+self.ward.name
 
 
-class User(models.Model):
-    idAccount = models.AutoField(primary_key=True)
-    userName = models.CharField(max_length=100)
-    password = models.CharField(max_length=50)
-    birthday = models.DateTimeField(null=False)
-    gender = models.CharField(max_length=20)
-    phone = models.CharField(max_length=11)
-    role = models.ForeignKey(UserRole, on_delete=models.SET_NULL, null=True)
-    address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True)
+# class User(models.Model):
+#     idAccount = models.AutoField(primary_key=True)
+#     userName = models.CharField(max_length=100)
+#     password = models.CharField(max_length=50)
+#     birthday = models.DateTimeField(null=False)
+#     gender = models.CharField(max_length=20)
+#     phone = models.CharField(max_length=11)
+#     role = models.ForeignKey(UserRole, on_delete=models.SET_NULL, null=True)
+#     address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True)
 
-    def __str__(self):
-        return self.userName
+#     def __str__(self):
+#         return self.userName
 
-    class Meta:
-        db_table = 'customer'
+#     class Meta:
+#         db_table = 'customer'
 
 
 class Author(models.Model):
@@ -131,7 +133,7 @@ class Book(models.Model):
     idBook = models.AutoField(primary_key=True)
     quantity = models.IntegerField(null=False)
     name = models.TextField(max_length=255, null=False)
-    image = models.ImageField(null=False,upload_to="uploads/")
+    image = models.ImageField(null=False, upload_to="uploads/")
     description = models.TextField(max_length=255, default="")
     publisher = models.ForeignKey(
         Publisher, on_delete=models.SET_NULL, null=True)
@@ -223,11 +225,23 @@ class Order(models.Model):
     def __str__(self):
         return "Order "+str(self.idOrder)
 
+
 class BookImage(models.Model):
     idBookImage = models.AutoField(primary_key=TRUE)
     idBook = models.ForeignKey(
         Book, null=True, on_delete=models.SET_NULL
     )
-    image = models.ImageField(null=True,upload_to="uploads/")
+    image = models.ImageField(null=True, upload_to="uploads/")
+
     class Meta:
         db_table = "book_image"
+
+
+class UserInfo(models.Model):
+    phone = models.TextField(max_length=11)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    avatar = models.ImageField(null=True, upload_to="uploads/")
+    birthday = models.DateField(default=datetime.datetime.now())
+
+    class Meta:
+        db_table = "user_info"

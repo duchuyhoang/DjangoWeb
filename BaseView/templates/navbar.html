@@ -1,321 +1,318 @@
 <div id="accountZone">
-    <div class="account d-flex ">
-        <a href="./checkout" class="checkout">Check out</a>
-        <div class='userInfoMenu'>
-            <ul class='menu'>
-                <li>
-                    <i class='fas fa-user fa-lg'></i>
-                    <a href='./admin'>Admin</a>
-                </li>
-                <li>
-                    <i class='fas fa-user fa-lg'></i>
-                    <a href='./myProfile'>Profile</a>
-                </li>
-                <li id='signOutBtn' value={$SIGN_OUT}>
-                    <i class='fas fa-sign-out-alt fa-lg'></i>
-                    <span>Sign out</span>
-                </li>
-            </ul>
-        </div>
-        <div data-toggle="modal" data-target="#signupModal">Sign up</div>
-        <div data-toggle="modal" data-target="#loginModal">Sign in</div>
+  <div class="account d-flex">
+    <a href="/checkout" class="checkout">Check out</a>
+    {%if request.user.id == None %}
+    <div data-toggle="modal" data-target="#signupModal">Sign up</div>
+    <div data-toggle="modal" data-target="#loginModal">Sign in</div>
+    {%else%}
+    <div class="userInfoMenu">
+      {{request.user.username}}
+      <ul class="menu">
+        <li>
+          <i class="fas fa-user fa-lg"></i>
+          <a href="/admin">Admin</a>
+        </li>
+        <li>
+          <i class="fas fa-user fa-lg"></i>
+          <a href="/myProfile">Profile</a>
+        </li>
+        <li id="signOutBtn">
+          <i class="fas fa-sign-out-alt fa-lg"></i>
+          <span>Sign out</span>
+        </li>
+      </ul>
     </div>
+    {%endif%}
+  </div>
 </div>
 <div id="header" class="d-flex pt-4 pb-4">
-    <div class="col-4 d-flex justify-content-center align-items-center">
-        <form action="" class="w-100">
-            <div class="searchWrapper position-relative d-flex justify-content-center">
-                <input type="text" placeholder="Search entire store here" height="50%" />
-                <button>
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </form>
-    </div>
-    <div class="col-4 d-flex justify-content-center align-items-center">
-        <a href="./home">
-            <img src="https://template.hasthemes.com/koparion/koparion/img/logo/logo.png"
-                 alt="Logo"/>
-        </a>
-    </div>
-    <div class="col-4 d-flex justify-content-center align-items-center">
-        <div class="cartContainer position-relative">
-            <i class="fas fa-shopping-cart cart fa-2x"></i>
-            <div class="productCount"></div>
-            <div>
-                <div class="productMenu">
-                    <div class="d-flex justify-content-center flex-column align-items-center"
-                         id="myCart">
-                        My cart
-                        <section class='cartItemContainer'>
-                            <div class='cartItem'>
-                                <a href='./product?id_product={$bookItem->getBook()->getId_book()}'
-                                   class='cartItemImg'>
-                                    <img src='{$avatar}' alt='' width='100%' height='100%'>
-                                </a>
-                                <div class='cartItemContent'>
-                                    <p>
-                                        <a href='./product?id_product={$bookItem->getBook()->getId_book()}'>ABCD</a>
-                                    </p>
-                                    <p>
-                                        10000VNĐ
-                                    </p>
-                                </div>
-                                <div class='cartItemDelete'>
-                                    <i class='fas fa-times'></i>
-                                </div>
-                            </div>
-                        </section>
-                        <a href="./myCart" class="cartBtn">View cart</a>
-                        <a href="./checkout" class="cartBtn mt-2">Checkout</a>
-                    </div>
+  <div class="col-4 d-flex justify-content-center align-items-center">
+    <form action="" class="w-100">
+      <div
+        class="searchWrapper position-relative d-flex justify-content-center"
+      >
+        {% csrf_token %}
+        <input
+          type="text"
+          placeholder="Search entire store here"
+          height="50%"
+        />
+        <button>
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="col-4 d-flex justify-content-center align-items-center">
+    <a href="./home">
+      <img
+        src="https://template.hasthemes.com/koparion/koparion/img/logo/logo.png"
+        alt="Logo"
+      />
+    </a>
+  </div>
+  <div class="col-4 d-flex justify-content-center align-items-center">
+    <div class="cartContainer position-relative">
+      <i class="fas fa-shopping-cart cart fa-2x"></i>
+      <div class="productCount"></div>
+      <div>
+        <div class="productMenu">
+          <div
+            class="d-flex justify-content-center flex-column align-items-center"
+            id="myCart"
+          >
+            My cart
+            <section class="cartItemContainer">
+              <div class="cartItem">
+                <a
+                  href="./product?id_product={$bookItem->getBook()->getId_book()}"
+                  class="cartItemImg"
+                >
+                  <img src="{$avatar}" alt="" width="100%" height="100%" />
+                </a>
+                <div class="cartItemContent">
+                  <p>
+                    <a
+                      href="./product?id_product={$bookItem->getBook()->getId_book()}"
+                      >ABCD</a
+                    >
+                  </p>
+                  <p>10000VNĐ</p>
                 </div>
-            </div>
+                <div class="cartItemDelete">
+                  <i class="fas fa-times"></i>
+                </div>
+              </div>
+            </section>
+            <a href="./myCart" class="cartBtn">View cart</a>
+            <a href="./checkout" class="cartBtn mt-2">Checkout</a>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <section class="w-100 pt-1 d-flex justify-content-center mt-3" id="navbar">
-    <ul>
-        <li class="cate  $url === " || url home active>
-            <a href="./home">
-                Home
-                <i class="fa fa-angle-down mt-1 ml-2"></i>
-            </a>
-            <div class="submenu">
-                <ul>
-                    <li>HOME 1</li>
-                    <li>HOME 2</li>
-                    <li>HOME 3</li>
-                    <li>HOME 4</li>
-                </ul>
-            </div>
-        </li>
-        <li class="cate list active">
-            <a href="">
-                Book
-                <i class="fa fa-angle-down mt-1 ml-2"></i>
-            </a>
-            <div class="submenu">
-                <ul>
-                    <li>adad</li>
-                    <li>dadada</li>
-                    <li>vvv</li>
-                    <li>daad</li>
-                </ul>
-            </div>
-        </li>
-        <li class="cate">
-            <a href="">
-                Author
-                <i class="fa fa-angle-down mt-1 ml-2"></i>
-            </a>
-            <div class="megaMenu">
-                <ul>
-                    <li>adad</li>
-                    <li>dadada</li>
-                    <li>vvv</li>
-                    <li>daad</li>
-                </ul>
-                <ul>
-                    <li>adad</li>
-                    <li>dadada</li>
-                    <li>vvv</li>
-                    <li>daad</li>
-                </ul>
-                <ul>
-                    <li>
-                        adad
-                    </li>
-                    <li>
-                        dadada
-                    </li>
-                    <li>
-                        vvv
-                    </li>
-                    <li>
-                        daad
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li class="cate">
-            <a href="">
-                Sale off
-                <i class="fa fa-angle-down mt-1 ml-2"></i>
-            </a>
-        </li>
-        <li class="cate contact active">
-            <a href="./contact">
-                About us
-                <!-- <i class="fa fa-angle-down mt-1 ml-2"></i> -->
-            </a>
-        </li>
-    </ul>
+  <ul>
+    <li class="cate">
+      <a href="./home">
+        Home
+        <i class="fa fa-angle-down mt-1 ml-2"></i>
+      </a>
+      <div class="submenu">
+        <ul>
+          <li>HOME 1</li>
+          <li>HOME 2</li>
+          <li>HOME 3</li>
+          <li>HOME 4</li>
+        </ul>
+      </div>
+    </li>
+    <li class="cate list active">
+      <a href="">
+        Book
+        <i class="fa fa-angle-down mt-1 ml-2"></i>
+      </a>
+      <div class="submenu">
+        <ul>
+          <li>adad</li>
+          <li>dadada</li>
+          <li>vvv</li>
+          <li>daad</li>
+        </ul>
+      </div>
+    </li>
+    <li class="cate">
+      <a href="">
+        Author
+        <i class="fa fa-angle-down mt-1 ml-2"></i>
+      </a>
+      <div class="megaMenu">
+        <ul>
+          <li>adad</li>
+          <li>dadada</li>
+          <li>vvv</li>
+          <li>daad</li>
+        </ul>
+        <ul>
+          <li>adad</li>
+          <li>dadada</li>
+          <li>vvv</li>
+          <li>daad</li>
+        </ul>
+        <ul>
+          <li>adad</li>
+          <li>dadada</li>
+          <li>vvv</li>
+          <li>daad</li>
+        </ul>
+      </div>
+    </li>
+    <li class="cate">
+      <a href="">
+        Sale off
+        <i class="fa fa-angle-down mt-1 ml-2"></i>
+      </a>
+    </li>
+    <li class="cate contact active">
+      <a href="./contact">
+        About us
+        <!-- <i class="fa fa-angle-down mt-1 ml-2"></i> -->
+      </a>
+    </li>
+  </ul>
 </section>
-<div id="headerAnchor">
-</div>
+<div id="headerAnchor"></div>
 <div class="modal fade" id="loginModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    &times;
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+        <h4 class="modal-title">Login</h4>
+      </div>
+      <div class="modal-body d-flex modal-lg">
+        <div class="col-6 d-flex flex-column align-items-center">
+          <img src="./img/loginImg.jpg" alt="" width="80%" height="90%" />
+        </div>
+        <div class="col-6">
+          <form method="post" id="loginForm">
+            <div class="d-flex flex-column w-75 m-auto">
+              <div class="form-group">
+                <label for="email"> Email address: </label>
+                <input
+                  type="email"
+                  name=""
+                  class="form-control mb-2"
+                  id="email"
+                  placeholder="Email..."
+                />
+              </div>
+              <div class="form-group">
+                <label for="password"> Password </label>
+                <input
+                  type="password"
+                  name=""
+                  class="form-control mb-2"
+                  id="password"
+                  placeholder="Password..."
+                />
+              </div>
+              <div class="form-group">
+                <p class="text-danger m-0" id="loginError"></p>
+              </div>
+              <div class="form-group d-flex justify-content-center w-100">
+                <button type="submit" class="blackButton btn" name="submit">
+                  Login
                 </button>
-                <h4 class="modal-title">
-                    Login
-                </h4>
+              </div>
             </div>
-            <div class="modal-body d-flex modal-lg">
-                <div class="col-6 d-flex flex-column align-items-center">
-                    <img src="./img/loginImg.jpg" alt="" width="80%" height="90%">
-                </div>
-                <div class="col-6">
-                    <form method="post" id="loginForm">
-                        <div class="d-flex flex-column w-75 m-auto">
-                            <div class="form-group">
-                                <label for="email">
-                                    Email address:
-                                </label>
-                                <input type="email" name= ''
-                                class="form-control mb-2" id="email" placeholder="Email..." />
-                            </div>
-                            <div class="form-group">
-                                <label for="password">
-                                    Password
-                                </label>
-                                <input type="password" name= ''
-                                class="form-control mb-2" id="password" placeholder="Password..." />
-                            </div>
-                            <div class="form-group">
-                                <p class="text-danger m-0" id="loginError">
-                                </p>
-                            </div>
-                            <div class="form-group d-flex justify-content-center w-100">
-                                <button type='submit'
-                                        class="blackButton btn"
-                                        name="submit"
-                                        value
-                                        php
-                                        echo
-                                        ACTION_LOGIN>
-                                        Login
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- <div class="modal-footer">
+          </form>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div> -->
-        </div>
     </div>
+  </div>
 </div>
 <div class="modal fade" id="signupModal" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    &times;
-                </button>
-                <h4 class="modal-title">
-                    Login
-                </h4>
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+        <h4 class="modal-title">Sign up</h4>
+      </div>
+      <div class="modal-body">
+        <form method="post" id="signUpForm">
+          {% csrf_token %}
+          <div class="d-flex flex-column w-75 m-auto">
+            <div class="form-group">
+              <label for="sgName"> Name: </label>
+              <input
+                type="text"
+                name="sgName"
+                class="form-control mb-2"
+                id="sgName"
+                placeholder="Name..."
+                autocomplete="nope"
+              />
             </div>
-            <div class="modal-body">
-                <form method="post" id="signUpForm">
-                    <div class="d-flex flex-column w-75 m-auto">
-                        <div class="form-group">
-                            <label for="sgName">
-                                Name:
-                            </label>
-                            <input type="text"
-                                   name="sgName"
-                                   class="form-control mb-2"
-                                   id="sgName"
-                                   placeholder="Name..."
-                                   autocomplete="nope"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="sgEmail">
-                                Email address:
-                            </label>
-                            <input type="email"
-                                   name="email"
-                                   class="form-control mb-2"
-                                   id="sgEmail"
-                                   placeholder="Email..."/>
-                        </div>
-                        <div class="form-group">
-                            <label for="sgPassword">
-                                Password:
-                            </label>
-                            <input type="password"
-                                   name="sgPassword"
-                                   class="form-control mb-2"
-                                   id="sgPassword"
-                                   placeholder="Password..."/>
-                        </div>
-                        <div class="form-group">
-                            <label for="sgPhone">
-                                Phone:
-                            </label>
-                            <input type="tel"
-                                   class="form-control mb-2"
-                                   id="sgPhone"
-                                   placeholder="Phone..."
-                                   onkeypress="return event.charCode >= 48&&event.charCode<57"
-                                   maxlength="10"
-                                   autocomplete="off"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="sgBirthday">
-                                Birthday:
-                            </label>
-                            <input type="date"
-                                   class="form-control mb-2"
-                                   id="sgBirthday"
-                                   placeholder="Birthday..."/>
-                        </div>
-                        <div class="form-group">
-                            <label for="sgAvatar">
-                                Avatar:
-                            </label>
-                            <input type="file"
-                                   class="form-control mb-2"
-                                   id="sgAvatar"
-                                   accept="image/png, image/jpeg"/>
-                        </div>
-                        <div class="form-group">
-                            <p class="text-danger m-0" id="signupError">
-                            </p>
-                        </div>
-                        <div class="form-group d-flex justify-content-center w-100">
-                            <button type='submit'
-                                    class="btn btn-primary"
-                                    name="submit"
-                                    value
-                                    php
-                                    echo
-                                    ACTION_SIGN_UP>
-                                    Sign up
-                            </button>
-                        </div>
-                    </div>
-                </form>
+            <div class="form-group">
+              <label for="sgEmail"> Email address: </label>
+              <input
+                type="email"
+                name="email"
+                class="form-control mb-2"
+                id="sgEmail"
+                placeholder="Email..."
+              />
             </div>
-            <!-- <div class="modal-footer">
+            <div class="form-group">
+              <label for="sgPassword"> Password: </label>
+              <input
+                type="password"
+                name="sgPassword"
+                class="form-control mb-2"
+                id="sgPassword"
+                placeholder="Password..."
+              />
+            </div>
+            <div class="form-group">
+              <label for="sgPhone"> Phone: </label>
+              <input
+                type="tel"
+                class="form-control mb-2"
+                id="sgPhone"
+                placeholder="Phone..."
+                onkeypress="return event.charCode >= 48&&event.charCode<57"
+                maxlength="10"
+                autocomplete="off"
+              />
+            </div>
+            <div class="form-group">
+              <label for="sgBirthday"> Birthday: </label>
+              <input
+                type="date"
+                class="form-control mb-2"
+                id="sgBirthday"
+                placeholder="Birthday..."
+              />
+            </div>
+            <div class="form-group">
+              <label for="sgAvatar"> Avatar: </label>
+              <input
+                type="file"
+                class="form-control mb-2"
+                id="sgAvatar"
+                accept="image/png, image/jpeg"
+              />
+            </div>
+            <div class="form-group">
+              <p class="text-danger m-0" id="signupError"></p>
+            </div>
+            <div class="form-group d-flex justify-content-center w-100">
+              <button type="submit" class="btn btn-primary">Sign up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div> -->
-        </div>
     </div>
+  </div>
 </div>
-<div class="position-fixed scrollToTop cursor-pointer"
-     id="scrollToTop"
-     onclick="scrollToTop()">
-    <i class="fa fa-angle-up"></i>
+<div
+  class="position-fixed scrollToTop cursor-pointer"
+  id="scrollToTop"
+  onclick="scrollToTop()"
+>
+  <i class="fa fa-angle-up"></i>
 </div>
-<div id="snackbar-container">
-</div>
+<div id="snackbar-container"></div>

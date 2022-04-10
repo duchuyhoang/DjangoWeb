@@ -19,7 +19,7 @@ environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MEDIA_URL = '/book/media/'
+MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '/book/media/')
 
 # Quick-start development settings - unsuitable for production
@@ -46,8 +46,9 @@ INSTALLED_APPS = [
     'home',
     'product',
     'user',
+    'authenticate',
     'BaseView',
-	"database",
+    "database",
 ]
 
 MIDDLEWARE = [
@@ -58,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'pythonDjangoEcommerce.middleware.permission.permission'
 ]
 
 ROOT_URLCONF = 'pythonDjangoEcommerce.urls'
@@ -97,10 +99,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': env("DATABASE_NAME"),
-		'USER': env('DATABASE_USER'),
-		'PASSWORD': env('DATABASE_PASSWORD'),
-		'HOST': env("DATABASE_HOST"),
-		'PORT': env("DATABASE_PORT"),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': env("DATABASE_HOST"),
+        'PORT': env("DATABASE_PORT"),
     }
 }
 
@@ -146,3 +148,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+AUTHENTICATION_BACKENDS = ('pythonDjangoEcommerce.backend.EmailBackend',)

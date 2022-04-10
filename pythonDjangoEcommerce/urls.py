@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 	path('home/',include('home.urls')),
 	path('product/',include('product.urls')),
+	path('authenticate/',include('authenticate.urls'))
 	# path("home/",home.index)
 ]+ static(settings.MEDIA_URL, document_root = MEDIA_ROOT)

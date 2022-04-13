@@ -20,7 +20,7 @@ environ.Env.read_env()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA_URL = '/uploads/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/book/media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, '')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'mathfilters',
     'home',
     'product',
     'user',
     'authenticate',
+	'management',
     'BaseView',
     "database",
 ]
@@ -59,7 +61,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-	'pythonDjangoEcommerce.middleware.permission.permission'
+	'pythonDjangoEcommerce.middleware.permission.permission',
+	'pythonDjangoEcommerce.middleware.userInfo.userInfo'
 ]
 
 ROOT_URLCONF = 'pythonDjangoEcommerce.urls'

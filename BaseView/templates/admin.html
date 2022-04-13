@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/assets/owl.carousel.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sifter/0.5.4/sifter.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/microplugin/0.0.3/microplugin.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/snackbarjs/1.1.0/snackbar.css"
+      crossorigin="anonymous"
+    />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/selectize.min.js">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.bootstrap4.min.css" crossorigin="anonymous">
+    <title>Admin</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/header.css' %}"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/tab.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/book.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/loading.css' %}"
+    />
+    {% block cssblock %}{% endblock %}
+  </head>
+
+
+
+  <body>
+	  
+
+	<section class="sidebar" id="sidebar">
+
+        <div class="d-flex pl-3 pr-3 mb-2">
+            <a href="./home">
+                <img src="https://template.hasthemes.com/koparion/koparion/img/logo/logo.png" alt="Logo" />
+            </a>
+
+        </div>
+
+
+        <div class="sidebarUser mb-5">
+            <div class="avatar">
+                <img width="100%" height="100%" src="/uploads{{userInfo.avatar}}"
+				 alt="" />
+
+                <ul class="menu">
+                    <li id="signOutBtn" value="<?php echo $SIGN_OUT ?>">
+                        <i class="fas fa-sign-out-alt mr-2"></i>
+                        Sign out
+                    </li>
+
+                    <a href="./myProfile">
+                        <i class="fa fa-user mr-2"></i>
+                        Profile</a>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="d-flex flex-column flex-grow-1">
+            <div class="sidebarItem <?php echo $tab == "" || $tab == $LIST_PRODUCT ? "sidebarItemActive" : "" ?>">
+                <!-- onclick="openTab(event,'<?php echo $LIST_PRODUCT ?>')" -->
+
+                <a href=''>
+                    <i class="fas fa-list"></i>
+                    List product
+                </a>
+
+            </div>
+            <div class="sidebarItem <?php echo $tab == $ADD_PRODUCT ? "sidebarItemActive" : "" ?>">
+                <!-- onclick="openTab(event,'<?php echo $ADD_PRODUCT ?>')" -->
+
+                <a href='<?php echo getCurrentUrl($_SERVER['REQUEST_URI']) . "?tab={$ADD_PRODUCT}" ?>'>
+                    <i class="fas fa-plus fa-lg"></i>
+                    Add product
+                </a>
+            </div>
+
+            <div class="sidebarItem <?php echo $tab == $LIST_ODER ? "sidebarItemActive" : "" ?>">
+                <!-- onClick="openTab(event,'<?php echo $LIST_ODER ?>')" -->
+                <a href='<?php echo getCurrentUrl($_SERVER['REQUEST_URI']) . "?tab={$LIST_ODER}" ?>'>
+                    <i class="fas fa-shopping-cart"></i>
+                    List orders
+                </a>
+            </div>
+            <!-- <div class="sidebarItem <?php echo $tab == $ADD_USER ? "sidebarItemActive" : "" ?>">
+                <a href='<?php echo getCurrentUrl($_SERVER['REQUEST_URI']) . "?tab={$ADD_USER}" ?>'>
+                    <i class="fas fa-users fa-lg"></i>
+                    List users
+                </a>
+            </div>
+            <div class="sidebarItem <?php echo $tab == $EDIT_USER ? "sidebarItemActive" : "" ?>">
+                <a href='<?php echo getCurrentUrl($_SERVER['REQUEST_URI']) . "?tab={$EDIT_USER}" ?>'>
+                    <i class="fas fa-user-edit fa-lg"></i>
+                    Add users
+                </a>
+            </div> -->
+            <div class="sidebarItem <?php echo $tab == $STATISTICAL ? "sidebarItemActive" : "" ?>">
+                <a href='<?php echo getCurrentUrl($_SERVER['REQUEST_URI']) . "?tab={$STATISTICAL}" ?>'>
+                    <i class="fas fa-chart-bar fa-lg"></i>
+                    Statistcal
+                </a>
+            </div>
+        </div>
+
+
+
+
+        <!-- <div class="sidebarItem">
+            <a href='<?php echo getCurrentUrl($_SERVER['REQUEST_URI']) . "?tab={$STATISTICAL}" ?>'>
+            <i class="fas fa-chart-bar fa-lg"></i>
+            </a>
+        </div> -->
+
+        <!-- <div class="sidebarItem" onClick="openTab(event,'orders')">
+            <i class="fas fa-file-invoice-dollar fa-lg"></i>
+        </div> -->
+
+
+    </section>
+
+
+
+    <section id="adminContent">
+
+        <div class="d-flex flex-column">
+            <div id="tabContent1" class="active">
+				{% block content %}{% endblock %}
+            </div>
+        </div>
+    </section>
+
+     {% block jsblock %}{% endblock %}
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/snackbarjs/1.1.0/snackbar.min.js"></script>
+  <script src="{% static 'js/autheticate.js' %}"></script>
+  <script src="{% static 'js/admin.js' %}"></script>
+
+</html>

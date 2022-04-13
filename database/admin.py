@@ -10,6 +10,7 @@ class UserInline(admin.StackedInline):
 class UserAdmin(BaseUserAdmin):
     inlines = (UserInline,)
 
+UserAdmin
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 admin.site.register([Category,Book,Publisher,Author,Address,Order,Cart,Shipment,Payment,BookItem, BookImage, Province, Ward, District])

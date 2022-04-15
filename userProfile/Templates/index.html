@@ -1,0 +1,296 @@
+{% extends 'base.html' %} {% load static %} 
+{% block cssblock %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/myAccount.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/Home.css' %}"
+/>
+{% endblock %} {% block content %}
+<div class="container mt-5">
+  <h2 class="myAccountHeader">My Account</h2>
+
+  <div class="row">
+    <div class="col-lg-3 col-md-4 nav nav-tabs d-block" role="tablist">
+      <div class="myAccountTab nav-item" role="presentation">
+        <a
+          href="?tab=detail"
+          class="myAccountTabItem nav-link {% if tab == None or tab == 'detail' %} active {% endif %}"
+          role="tab"
+          data-bs-toggle="tab"
+          data-bs-target="#accountDetail"
+          aria-controls="accountDetail"
+          id="nav-accountDetail-tab"
+          aria-selected="true"
+        >
+          <i class="fa fa-user"></i>
+          Account detail</a
+        >
+      </div>
+      <div class="myAccountTab nav-item" role="presentation">
+        <a
+          href="?tab=order"
+          class="myAccountTabItem nav-link"
+          data-bs-toggle="tab"
+          role="tab"
+          data-bs-target="#order"
+          aria-controls="order"
+          id="nav-order-tab"
+          aria-selected="false"
+        >
+          <i class="fa fa-cart-arrow-down"></i>
+          Orders</a
+        >
+      </div>
+      <div class="myAccountTab nav-item" role="presentation">
+        <a
+          href="?tab=password"
+          class="myAccountTabItem nav-link {% if tab == None or tab == 'password' %} active {% endif %}"
+          data-bs-toggle="tab"
+          role="tab"
+          data-bs-target="#user_password"
+          aria-controls="user_password"
+          id="nav-user_password-tab"
+          aria-selected="false"
+        >
+          <i class="fas fa-lock"></i>
+          Password</a
+        >
+      </div>
+      <div class="myAccountTab">
+        <a
+          href="?tab=address"
+          class="myAccountTabItem nav-link"
+          data-bs-toggle="tab"
+          role="tab"
+          data-bs-target="#user_address"
+          aria-controls="user_address"
+          id="nav-user_address-tab"
+          aria-selected="false"
+        >
+          <i class="fa fa-map-marker"></i>
+          Address</a
+        >
+      </div>
+      <div class="myAccountTab">
+        <a href="" class="myAccountTabItem">
+          <i class="fas fa-sign-out-alt"></i>
+          Sign out
+        </a>
+      </div>
+    </div>
+
+    <div class="col-lg-9 col-md-8 tab-content myAccountContainer">
+      <section
+        class="tab-pane fade show {% if tab == None or tab == 'detail' %} active {% endif %}"
+        id="accountDetail"
+        role="tabpanel"
+        aria-labelledby="nav-accountDetail-tab"
+      >
+        <h2>Account detail</h2>
+        <div class="d-flex">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="userName"
+                >First name<span class="text-danger ml-1">*</span></label
+              >
+              <input
+                type="text"
+                class="baseInput"
+                id="userName"
+                placeholder=""
+                value="{{user.username}}"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="d-flex">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="userPhone"
+                >Phone<span class="text-danger ml-1">*</span></label
+              >
+              <input
+                type="text"
+                class="baseInput"
+                id="userPhone"
+                placeholder=""
+                value="{{userInfo.phone}}"
+              />
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label for="userBirthday"
+                >Birthday<span class="text-danger ml-1">*</span></label
+              >
+              <input
+                type="date"
+                class="baseInput"
+                id="userBirthday"
+                placeholder=""
+                value="{{userInfo.birthday}}"
+              />
+            </div>
+          </div>
+        </div>
+
+        {% comment %}
+        <div class="d-flex">
+          <div class="col-12">
+            <div class="form-group">
+              <label for="userSelfDecribe">Self describe</label>
+
+              <textarea class="form-control" id="userSelfDecribe"> </textarea>
+            </div>
+          </div>
+        </div>
+        {% endcomment %}
+
+        <div class="d-flex">
+          <div class="col-12">
+            <div class="form-group">
+              <label for="newAvatar">Avatar</label>
+
+              <input type="file" id="newAvatar" accept="image/*" />
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="blackButton ml-3"
+          id="saveEditedUserInfo"
+          value="<?php echo $EDIT_USER ?>"
+        >
+          Save changes
+        </button>
+      </section>
+      <section
+        class="tab-pane fade show"
+        id="order"
+        role="tabpanel"
+        aria-labelledby="nav-order-tab"
+      >
+        <div class="row justify-content-around">
+          <div class="card col-3">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+          <div class="card col-3">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+          <div class="card col-3">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="tab-pane fade show {% if tab == 'password' %} active {% endif %}"
+        id="user_password"
+        role="tabpanel"
+        aria-labelledby="nav-user_password-tab"
+      >
+        <h2>Password</h2>
+
+        <div class="d-flex">
+          <div class="col-12">
+            <div class="form-group">
+              <label for="currentPassword"
+                >Current password<span class="text-danger ml-1">*</span></label
+              >
+              <input
+                type="password"
+                class="baseInput"
+                id="currentPassword"
+                placeholder="Current password"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="newPassword"
+                >New password<span class="text-danger ml-1">*</span></label
+              >
+              <input
+                type="password"
+                class="baseInput"
+                id="newPassword"
+                placeholder="New password"
+              />
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label for="confirmPassword"
+                >Confirm password<span class="text-danger ml-1">*</span></label
+              >
+              <input
+                type="password"
+                class="baseInput"
+                id="confirmPassword"
+                placeholder="Confirm password"
+              />
+            </div>
+          </div>
+        </div>
+        <button class="blackButton ml-3" id="editPassword">Save changes</button>
+      </section>
+
+      <section
+        class="tab-pane fade show {% if tab == 'address' %} active {% endif %}"
+        id="user_address"
+        role="tabpanel"
+        aria-labelledby="nav-user_address-tab"
+      >
+        <h2>Your address</h2>
+      </section>
+
+      <div
+        class="tab-pane fade"
+        id="nav-contact"
+        role="tabpanel"
+        aria-labelledby="nav-contact-tab"
+      >
+        ...
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mb-5"></div>
+{% endblock %}

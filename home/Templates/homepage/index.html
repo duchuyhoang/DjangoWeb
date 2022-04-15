@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load mathfilters %}
 {% load static %}
 {% block cssblock %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/Home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Home.css' %}">
 {% endblock %}
 {% block content %}
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W3XV2QS"
@@ -47,14 +48,14 @@
         </div>
     </section>
     <div class="owl-carousel" id="mainSlide">
-        <div class="bgSlide1 bgSlide">
+        <div class="bgSlide1 bgSlide" style="background-image: url('https://media-us.camilyo.software/media-us/static/0890/851.jpg')">
             <div class="slideContent">
                 <h1 class="slideHeader animate__animated">Huge sale</h1>
                 <h1 class="slideHeader2 animate__animated">Korparion</h1>
                 <button class="animate__animated slideBtn">Shop now</button>
             </div>
         </div>
-        <div class="bgSlide2 bgSlide">
+        <div class="bgSlide2 bgSlide" style="background-image: url('https://media-us.camilyo.software/media-us/static/0890/850.jpg')">
             <div class="slideContent">
                 <h1 class="slideHeader animate__animated">Huge sale</h1>
                 <h1 class="slideHeader2 ">Korparion</h1>
@@ -71,49 +72,55 @@
         </p>
         <div class="d-flex justify-content-center mt-3">
             <div class="tab col-6 d-flex justify-content-around">
-                <button class="tablinks active" onclick="openCity(event, 'New Arrival')">
-                    New
-                    Arrival
-                </button>
+                <button class="tablinks active" onclick="openCity(event, 'New Arrival')">New Arrival</button>
                 <button class="tablinks" onclick="openCity(event, 'OnSale')">OnSale</button>
                 <button class="tablinks" onclick="openCity(event, 'Product')">Product</button>
             </div>
         </div>
         <div id="New Arrival" class="tabcontent container" style="display:flex">
-            <section class="newArrivalSlide owl-carousel" id="newArrivalSlide">
-                <div class='bookWrapper'>
-                    <div class='bookImg'>
-                        <div class='bookView'>
-                            <div class='bookIconWrapper'>
-                                <a href='./product?id_product={$book->getId_book()}'>
-                                    <i class='fas fa-search fa-1x '></i>
-                                </a>
+            <section class="newArrivalSlide owl-carousel" id="newArrivalSlide" style="display: inherit;">
+                {% if listBook  %}
+                    {% for book in listBook  %}
+                        
+                        <div class='bookWrapper'>
+                            <div class='bookImg'>
+                                <div class='bookView'>
+                                    <div class='bookIconWrapper'>
+                                        <a href='/product/infor/{{book.idBook}}'>
+                                            <i class='fas fa-search fa-1x '></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <img src='/uploads{{book.image}}' alt='book'/>
+                            </div>
+                            <div class='bookDetail'>
+                                <div class='bookName'>{{ book.name }}</div>
+                                <div class='d-flex align-items-center'>
+                                    {% with numerator=12 saleTotal=book.price|mul:book.salePrice %}
+                                    <p class='bookPrice'>
+                                        {{book.price|sub:saleTotal}} vnđ
+                                    </p>
+                                    {% endwith %}
+                                    <p class='bookPriceActual'>
+                                        {{ book.price }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class='tagContainer d-flex flex-column'>
+                                {% with sale=book.salePrice|mul:100 %}
+                                <div class='saleTag sale'>{{ sale }}%</div>
+                                {% endwith %}
+                                <div class='saleTag new'>NEW</div>
                             </div>
                         </div>
-                        <img src='{$firstImage}' alt='book' />
-                    </div>
-                    <div class='bookDetail'>
-                        <div class='bookName'>{$book->getName()}</div>
-                        <div class='d-flex align-items-center'>
-                            <p class='bookPrice'>
-                                {$bookPrice}VND
-                            </p>
-                            " .
-                            <p class='bookPriceActual'>
-                                {$actualMoney}VND
-                            </p>
-                        </div>
-                    </div>
-                    <div class='tagContainer d-flex flex-column'>
-                        " .
-                        <div class='saleTag sale'>" . $book->getSale() * 100  . "%</div>
-                        <div class='saleTag new'>NEW</div>
-                    </div>
-                </div>
+                    {% endfor %}
+                {% else %}
+                    <h1>Khong co du lieu</h1>
+                {% endif %}
             </section>
         </div>
         <div id="OnSale" class="tabcontent container">
-            <section class="onSaleSlide owl-carousel" id="onSaleSlide">
+            <section class="onSaleSlide owl-carousel" id="onSaleSlide" style="display: inherit;">
                 <div class="bookWrapper">
                     <div class="bookImg">
                         <div class="bookView">
@@ -155,14 +162,20 @@
                              alt="book"/>
                     </div>
                     <div class="bookDetail">
-                        <div class="bookName">Harry Potter</div>
+                        <div class="bookName">
+                            Harry Potter
+                        </div>
                         <p class="bookPrice">
                             100$
                         </p>
                     </div>
                     <div class="tagContainer d-flex flex-column">
-                        <div class="saleTag sale">5%</div>
-                        <div class="saleTag new">NEW</div>
+                        <div class="saleTag sale">
+                            5%
+                        </div>
+                        <div class="saleTag new">
+                            NEW
+                        </div>
                     </div>
                 </div>
                 <div class="bookWrapper">
@@ -284,7 +297,7 @@
             </section>
         </div>
         <div id="Product" class="tabcontent container">
-            <section class="productSlide owl-carousel" id="productSlide">
+            <section class="productSlide owl-carousel" id="productSlide" style="display: inherit;">
                 <div class="bookWrapper">
                     <div class="bookImg">
                         <div class="bookView">
@@ -956,8 +969,7 @@
                         Sign up for send letter
                     </h2>
                     <p style="color:#fff">
-                        You can be always up to date with our
-                        company new!
+                        You can be always up to date with our company new!
                     </p>
                     <input type="text" placeholder="Enter your email address">
                     <button class="btn mt-4" type="submit">
@@ -968,4 +980,163 @@
         </div>
     </section>
 {% endblock %}
-{% block jsblock %}{% endblock %}
+{% block jsblock %}
+
+    <script src="{% static "js/jquery-1.11.1.js" %}"></script> <script src="{% static "js/rango-jquery.js" %}"></script> <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <script src="https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>  <script> let owlCarouselTabOption = { loop: false, nav: true, slideSpeed: 5000, // autoplay: true, // autoplayTimeout: 2000, rewind: true, autoplayHoverPause: true, mouseDrag: true, navText: [ "<i class='fa fa-angle-left fa-2x newArrivalNavButton navLeftButton'>
+</i>",
+            "<i class='fa fa-angle-right navRightButton fa-2x newArrivalNavButton'></i>"
+        ],
+        // margin: 10,
+        responsiveClass: true,
+        items: 2,
+        responsive: {
+            0: {
+                items: 1,
+                nav: true
+            },
+            600: {
+                items: 2,
+                nav: true
+            },
+            768: {
+                items: 3,
+                nav: false
+            },
+            992: {
+                items: 4,
+                nav: true,
+                loop: false
+            },
+            1200: {
+                items: 4,
+                nav: true,
+                loop: false
+            }
+        }
+    }
+    </script>
+    <script>
+    function changeSlideAnimatition(event) {
+        var item = event.item.index - 2; // Position of the current item
+        // console.log($(".owl-item"));
+        let listOwlItem = document.getElementById("mainSlide")
+            .getElementsByClassName("owl-item");
+
+        // $(".owl-item")
+        for (let i = 0; i < listOwlItem.length; i++) {
+            if (listOwlItem[i].classList.length) {
+                let element = listOwlItem[i].children[0];
+                element.getElementsByClassName("slideHeader")[0].classList.remove(
+                    "animate__animated", "animate__backInLeft");
+                element.getElementsByClassName("slideHeader2")[0].classList.remove(
+                    "animate__animated", "animate__backInRight");
+                element.getElementsByClassName("slideBtn")[0].classList.remove(
+                    "animate__animated", "animate__backInDown");
+
+                // console.log(element.getElementsByClassName("slideHeader2"));
+            }
+        }
+
+
+        $('h1').removeClass('animated bounce');
+        $('.owl-item').find('.slideHeader').not('.cloned').eq(item).removeClass(
+            'animate__animated animate__backInLeft').addClass(
+            'animate__animated animate__backInLeft');
+        $('.owl-item').find('.slideHeader2').not('.cloned').eq(item).removeClass(
+            'animate__animated animate__backInRight').addClass(
+            'animate__animated animate__backInRight');
+        $('.owl-item').find('.slideBtn').not('.cloned').eq(item).removeClass(
+            'animate__animated animate__backInDown').addClass(
+            'animate__animated animate__backInDown');
+    }
+
+    $(document).ready(function() {
+
+        // var owl = $('.owl-carousel');/
+        var owl = $('#mainSlide');
+        owl.on('initialized.owl.carousel', changeSlideAnimatition);
+        owl.owlCarousel({
+            nav: true,
+            autoplay: true,
+            autoplayTimeout: 4000,
+            slideSpeed: 5000,
+            loop: false,
+            navText: [
+                "<i class='fa fa-angle-left fa-4x navButton'></i>",
+                "<i class='fa fa-angle-right fa-4x navButton'></i>"
+            ],
+            items: 1,
+            rewind: true
+        });
+        owl.on('changed.owl.carousel', changeSlideAnimatition);
+    });
+    </script>
+    <script>
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "flex";
+        evt.currentTarget.className += " active";
+    }
+    </script>
+    <script>
+    $(document).ready(function() {
+        $("#newArrivalSlide").owlCarousel({
+            ...owlCarouselTabOption,
+            pagination: false,
+        });
+        $("#onSaleSlide").owlCarousel({
+            ...owlCarouselTabOption,
+            pagination: false,
+        });
+
+        $("#productSlide").owlCarousel({
+            ...owlCarouselTabOption,
+            pagination: false,
+        });
+
+    })
+    </script>
+    <script>
+    $(document).ready(function() {
+        $("#authorSlide").owlCarousel({
+            ...owlCarouselTabOption,
+            navText: [
+                "<i class='fa fa-angle-left fa-2x authorSlideBtn navLeftButton'></i>",
+                "<i class='fa fa-angle-right navRightButton fa-2x authorSlideBtn'></i>"
+            ],
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: true
+                },
+                600: {
+                    items: 1,
+                    nav: true
+                },
+                768: {
+                    items: 1,
+                    nav: false
+                },
+                992: {
+                    items: 1,
+                    nav: true,
+                    loop: false
+                },
+                1200: {
+                    items: 2,
+                    nav: true,
+                    loop: false
+                }
+            }
+        })
+    })
+    </script>
+{% endblock %}

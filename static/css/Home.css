@@ -29,11 +29,11 @@
 }
 
 .bgSlide1 {
-    background-image: url("../img//bg1.jpg");
+    background-image: url("https://media.istockphoto.com/photos/bookstore-shop-exterior-with-books-and-textbooks-in-showcase-picture-id1222563369?k=20&m=1222563369&s=612x612&w=0&h=kQs77JZl26jipbHmW2STOFh5FWbhDWex-aLB5sD9LSo=");
 }
 
 .bgSlide2 {
-    background-image: url("../img//bg2.jpg");
+    background-image: url("https://mustsharenews.com/wp-content/uploads/2019/02/Chinas-Zhongshuge-Bookstore-Features-A-Mirrored-Maze-Straight-Out-Of-Inception-1200x675.jpg");
 }
 
 .slideBtn {
@@ -189,13 +189,13 @@
 }
 
 #hotDeal {
-    background-image: url("../img/homeBannerBg.jpg");
+    background-image: url("https://media.istockphoto.com/photos/bookstore-shop-exterior-with-books-and-textbooks-in-showcase-picture-id1222563369?k=20&m=1222563369&s=612x612&w=0&h=kQs77JZl26jipbHmW2STOFh5FWbhDWex-aLB5sD9LSo=");
     background-size: cover;
     /* height: */
 }
 
 #banner .banner {
-    background-image: url("../img/banner.jpg");
+    background-image: url("https://media.istockphoto.com/photos/bookstore-shop-exterior-with-books-and-textbooks-in-showcase-picture-id1222563369?k=20&m=1222563369&s=612x612&w=0&h=kQs77JZl26jipbHmW2STOFh5FWbhDWex-aLB5sD9LSo=");
     height: 120px;
     cursor: pointer;
     transition: 0.4s;
@@ -259,7 +259,7 @@
 }
 
 .blockLetter {
-    background-image: url("../img/letterBg.jpg");
+    background-image: url("https://mustsharenews.com/wp-content/uploads/2019/02/Chinas-Zhongshuge-Bookstore-Features-A-Mirrored-Maze-Straight-Out-Of-Inception-1200x675.jpg");
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;

@@ -59,8 +59,8 @@
     {% block cssblock %}{% endblock %}
   </head>
   <body>
-    {% include 'navbar.html' %} {% block content %}{% endblock %} {% include
-    'footer.html' %} {% block jsblock %}{% endblock %}
+    {% include 'navbar.html' %} {% block content %}{% endblock %} 
+	{% include 'footer.html' %} {% block jsblock %}{% endblock %}
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/snackbarjs/1.1.0/snackbar.min.js"></script>
   <script src="{% static 'js/autheticate.js' %}"></script>

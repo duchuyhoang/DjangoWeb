@@ -8,10 +8,12 @@
     <div class="userInfoMenu">
       {{request.user.username}}
       <ul class="menu">
+        {%if request.user.issuperuser == True %}
         <li>
           <i class="fas fa-user fa-lg"></i>
-          <a href="/admin">Admin</a>
+          <a href="/management">Admin</a>
         </li>
+        {%endif%}
         <li>
           <i class="fas fa-user fa-lg"></i>
           <a href="/myProfile">Profile</a>

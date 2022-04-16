@@ -40,6 +40,7 @@ $("#addNewProduct").click(function (event) {
   data.append("bookName", $("#newBookName").val());
   data.append("bookQuantity", $("#newBookQuantity").val());
   data.append("bookPrice", $("#newBookPrice").val());
+  data.append("salePrice", $("#newSalePrice").val());
   data.append("bookAuthor", $select[0].selectize.getValue());
   data.append("bookDescription", $("#newBookDescription").val());
   data.append(

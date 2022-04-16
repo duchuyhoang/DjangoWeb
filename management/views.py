@@ -55,12 +55,14 @@ def handleAddProduct(request: HttpRequest):
     if(request.method == "POST"):
         try:
             submitData = request.POST
+            print(submitData)
             newBook = Book(
                 name=submitData["bookName"],
                 quantity=submitData["bookQuantity"],
                 description=submitData["bookDescription"],
                 publisher_id=submitData["bookManufacture"],
                 price=submitData["bookPrice"],
+                salePrice=submitData["salePrice"],
             )
             newBook.save()
             categories = submitData["bookCategory"].split(",")

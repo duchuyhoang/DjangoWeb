@@ -80,8 +80,7 @@
         <div id="New Arrival" class="tabcontent container" style="display:flex">
             <section class="newArrivalSlide owl-carousel" id="newArrivalSlide" style="display: inherit;">
                 {% if listBook  %}
-                    {% for book in listBook  %}
-                        
+                    {% for book in listBook  %}           
                         <div class='bookWrapper'>
                             <div class='bookImg'>
                                 <div class='bookView'>
@@ -298,185 +297,43 @@
         </div>
         <div id="Product" class="tabcontent container">
             <section class="productSlide owl-carousel" id="productSlide" style="display: inherit;">
-                <div class="bookWrapper">
-                    <div class="bookImg">
-                        <div class="bookView">
-                            <div class="bookIconWrapper">
-                                <a href="">
-                                    <i class="fas fa-search fa-1x "></i>
-                                </a>
+                {% if listBook  %}
+                    {% for book in listBook  %}           
+                        <div class='bookWrapper'>
+                            <div class='bookImg'>
+                                <div class='bookView'>
+                                    <div class='bookIconWrapper'>
+                                        <a href='/product/infor/{{book.idBook}}'>
+                                            <i class='fas fa-search fa-1x '></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <img src='/uploads{{book.image}}' alt='book'/>
+                            </div>
+                            <div class='bookDetail'>
+                                <div class='bookName'>{{ book.name }}</div>
+                                <div class='d-flex align-items-center'>
+                                    {% with numerator=12 saleTotal=book.price|mul:book.salePrice %}
+                                    <p class='bookPrice'>
+                                        {{book.price|sub:saleTotal}} vnđ
+                                    </p>
+                                    {% endwith %}
+                                    <p class='bookPriceActual'>
+                                        {{ book.price }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class='tagContainer d-flex flex-column'>
+                                {% with sale=book.salePrice|mul:100 %}
+                                <div class='saleTag sale'>{{ sale }}%</div>
+                                {% endwith %}
+                                <div class='saleTag new'>NEW</div>
                             </div>
                         </div>
-                        <img src="https://template.hasthemes.com/koparion/koparion/img/product/5.jpg"
-                             alt="book"/>
-                    </div>
-                    <div class="bookDetail">
-                        <div class="bookName">
-                            Harry Potter
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <p class="bookPrice">
-                                100$
-                            </p>
-                            <p class="bookPriceActual">
-                                100$
-                            </p>
-                        </div>
-                    </div>
-                    <div class="tagContainer d-flex flex-column">
-                        <div class="saleTag sale">
-                            5%
-                        </div>
-                        <div class="saleTag new">
-                            NEW
-                        </div>
-                    </div>
-                </div>
-                <div class="bookWrapper">
-                    <div class="bookImg">
-                        <div class="bookView">
-                            <div class="bookIconWrapper">
-                                <a href="">
-                                    <i class="fas fa-search fa-1x "></i>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="https://template.hasthemes.com/koparion/koparion/img/product/2.jpg"
-                             alt="book"/>
-                    </div>
-                    <div class="bookDetail">
-                        <div class="bookName">
-                            Harry Potter
-                        </div>
-                        <p class="bookPrice">
-                            100$
-                        </p>
-                    </div>
-                    <div class="tagContainer d-flex flex-column">
-                        <div class="saleTag sale">
-                            5%
-                        </div>
-                        <div class="saleTag new">
-                            NEW
-                        </div>
-                    </div>
-                </div>
-                <div class="bookWrapper">
-                    <div class="bookImg">
-                        <div class="bookView">
-                            <div class="bookIconWrapper">
-                                <a href="">
-                                    <i class="fas fa-search fa-1x "></i>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="https://template.hasthemes.com/koparion/koparion/img/product/11.jpg"
-                             alt="book"/>
-                    </div>
-                    <div class="bookDetail">
-                        <div class="bookName">
-                            Harry Potter
-                        </div>
-                        <p class="bookPrice">
-                            100$
-                        </p>
-                    </div>
-                    <div class="tagContainer d-flex flex-column">
-                        <div class="saleTag sale">
-                            5%
-                        </div>
-                        <div class="saleTag new">
-                            NEW
-                        </div>
-                    </div>
-                </div>
-                <div class="bookWrapper">
-                    <div class="bookImg">
-                        <div class="bookView">
-                            <div class="bookIconWrapper">
-                                <a href="">
-                                    <i class="fas fa-search fa-1x "></i>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="https://template.hasthemes.com/koparion/koparion/img/product/1.jpg"
-                             alt="book"/>
-                    </div>
-                    <div class="bookDetail">
-                        <div class="bookName">
-                            Harry Potter
-                        </div>
-                        <p class="bookPrice">
-                            100$
-                        </p>
-                    </div>
-                    <div class="tagContainer d-flex flex-column">
-                        <div class="saleTag sale">
-                            5%
-                        </div>
-                        <div class="saleTag new">
-                            NEW
-                        </div>
-                    </div>
-                </div>
-                <div class="bookWrapper">
-                    <div class="bookImg">
-                        <div class="bookView">
-                            <div class="bookIconWrapper">
-                                <a href="">
-                                    <i class="fas fa-search fa-1x "></i>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="https://template.hasthemes.com/koparion/koparion/img/product/7.jpg"
-                             alt="book"/>
-                    </div>
-                    <div class="bookDetail">
-                        <div class="bookName">
-                            Harry Potter
-                        </div>
-                        <p class="bookPrice">
-                            100$
-                        </p>
-                    </div>
-                    <div class="tagContainer d-flex flex-column">
-                        <div class="saleTag sale">
-                            5%
-                        </div>
-                        <div class="saleTag new">
-                            NEW
-                        </div>
-                    </div>
-                </div>
-                <div class="bookWrapper">
-                    <div class="bookImg">
-                        <div class="bookView">
-                            <div class="bookIconWrapper">
-                                <a href="">
-                                    <i class="fas fa-search fa-1x "></i>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="https://template.hasthemes.com/koparion/koparion/img/product/3.jpg"
-                             alt="book"/>
-                    </div>
-                    <div class="bookDetail">
-                        <div class="bookName">
-                            Harry Potter
-                        </div>
-                        <p class="bookPrice">
-                            100$
-                        </p>
-                    </div>
-                    <div class="tagContainer d-flex flex-column">
-                        <div class="saleTag sale">
-                            5%
-                        </div>
-                        <div class="saleTag new">
-                            NEW
-                        </div>
-                    </div>
-                </div>
+                    {% endfor %}
+                {% else %}
+                    <h1>Khong co du lieu</h1>
+                {% endif %}
             </section>
         </div>
         <div id="banner">
@@ -485,7 +342,7 @@
                     <div class="col-12 position-relative">
                         <div class="border-box">
                             <a href="" class="d-block  overflow-hidden">
-                                <img src="./img/banner.jpg" alt="">
+                                <img src="{% static 'imgs/banner.jpg' %}" alt="">
                                 <p class="position-absolute banner-text">
                                     G.Meyner book & Spiritual Traveler Press
                                 </p>
@@ -527,7 +384,7 @@
                         </div>
                         <div class="col-6 col-md-6 col-sm-12 col-12">
                             <div class="authorAvatar">
-                                <img src="./img/defaultAuthor.jpg" />
+                                <img src="{% static 'imgs/defaultAuthor.jpg' %}" />
                             </div>
                         </div>
                     </div>
@@ -741,12 +598,12 @@
             <div class="col-6 d-flex justify-content-center banner-shadow-hover"
                  style="background:#95C7E6">
                 <a href="#">
-                    <img src="./img//bgImage1.jpg" />
+                    <img src="{% static 'imgs/bgImage1.jpg' %}" />
                 </a>
             </div>
             <div class="col-6 banner-shadow-hover justify-content-center d-flex">
                 <a href="#">
-                    <img src="./img//bgImage2.jpg" />
+                    <img src="{% static 'imgs/bgImage2.jpg' %}" />
                 </a>
             </div>
         </div>

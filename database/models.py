@@ -9,6 +9,10 @@ import datetime
 # Create your models here.
 
 
+from django.contrib.auth.models import User
+User._meta.get_field('email')._unique = True
+User._meta.get_field('username')._unique = False
+
 class UserRole(models.Model):
     idRole = models.AutoField(primary_key=True)
     roleName = models.CharField(max_length=50)

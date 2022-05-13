@@ -7,14 +7,20 @@ from django.contrib.auth.hashers import make_password
 import datetime
 from django.core.files.storage import FileSystemStorage
 from database.models import UserInfo
+from django.db import IntegrityError
+import json
 
 
 def Login(request: HttpRequest):
     if(request.method == "POST"):
         user = authenticate(
             username=request.POST["email"], password=request.POST["password"])
+        if(user is None or user.is_anonymous is True):
+            return HttpResponseNotFound("Wrong email or password")
+
         login(request, user)
-        request.session['user'] = "huy"
+		# request.session.
+        # request.session['user'] = "huy"
         return JsonResponse({"message": "ok"})
     else:
         return HttpResponseNotFound("Wrong email or password")
@@ -29,7 +35,6 @@ def SignUp(request: HttpRequest):
             fs = FileSystemStorage(location="uploads/")
             filename = fs.save(avatar.name, avatar)
             file_url = fs.url(filename)
-            print(file_url)
             user = User(
                 id=userId,
                 username=submitData["name"],
@@ -50,8 +55,14 @@ def SignUp(request: HttpRequest):
             return JsonResponse({"message": "ok", "status": 200})
         else:
             return HttpResponseBadRequest("Something wrong")
-    except:
-        return HttpResponseBadRequest("Something wrong")
+    except IntegrityError as e:
+        errorMessage = ''
+        print(str(e))
+        if "email" in str(e):
+            errorMessage = 'Email exist'
+        return HttpResponseBadRequest(json.dumps({
+            "error": errorMessage
+        }))
 
 
 def Signout(request: HttpRequest):

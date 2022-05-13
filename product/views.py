@@ -8,7 +8,7 @@ from pythonDjangoEcommerce.common.ultils import renderWithPermission
 def getInfor(request, id):
     book = Book.objects.get(idBook=id)
     images = BookImage.objects.filter(idBook=book)
-    return renderWithPermission(request, "is_superuser", render(request, 'product/infor.html', {'book': book, 'images': images}), HttpResponseRedirect('/home'))
+    return renderWithPermission(request, "guest", render(request, 'product/infor.html', {'book': book, 'images': images}), HttpResponseRedirect('/home'))
 
 
 def get(self, request):

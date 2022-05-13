@@ -1,6 +1,6 @@
 uploads/**
-*.jpg
-*.png
+# *.jpg
+# *.png
 *.pyc
 database/**/*.pyc
 _pycache_

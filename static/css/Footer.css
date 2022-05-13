@@ -56,3 +56,27 @@
 .categoryList li a{
     text-decoration: none!important;
 }
+#lastTweet {
+    background: #eee;
+}
+.avatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #f07c29;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#social .avatar {
+    background: #fff;
+}
+
+#social .avatar:hover i {
+    color: #fff !important;
+}
+
+#social .avatar:hover {
+    background: black;
+}

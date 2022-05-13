@@ -16,13 +16,11 @@ $("#loginForm").submit(function (event) {
   request.fail(function (jqXHR, textStatus, errorThrown) {
     // Log the error to the console
     $("#loading").removeClass("loadingShow");
-    const error = JSON.parse(jqXHR.responseText);
-    $("#loginError").html(error.message || "Login failed");
+    $("#loginError").html(jqXHR.responseText || "Login failed");
   });
 });
 
 $("#signUpForm").submit(function (event) {
-	console.log("submit");
   event.preventDefault();
   const data = new FormData();
   $("#loading").addClass("loadingShow");
@@ -55,13 +53,14 @@ $("#signUpForm").submit(function (event) {
   });
 
   request.fail(function (jqXHR, textStatus, errorThrown) {
+    console.log(textStatus, errorThrown);
     $.snackbar({
-      content: "Sign up fail!!!",
+      content: errorThrown,
       timeout: 5000,
       style: "customSnackbar snackbar-error",
     });
     $("#loading").removeClass("loadingShow");
-    $("#signupModal").modal("hide");
+    // $("#signupModal").modal("hide");s
   });
 
   // $("#signOutBtn").click(function(event) {

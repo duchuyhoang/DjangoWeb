@@ -155,9 +155,7 @@
     color: #333;
 }
 
-#lastTweet {
-    background: #eee;
-}
+
 
 #lastTweet .jumbotron {
     padding-top: 2rem;
@@ -166,27 +164,6 @@
     background: transparent;
 }
 
-.avatar {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background: #f07c29;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#social .avatar {
-    background: #fff;
-}
-
-#social .avatar:hover i {
-    color: #fff !important;
-}
-
-#social .avatar:hover {
-    background: black;
-}
 
 #hotDeal {
     background-image: url("https://media.istockphoto.com/photos/bookstore-shop-exterior-with-books-and-textbooks-in-showcase-picture-id1222563369?k=20&m=1222563369&s=612x612&w=0&h=kQs77JZl26jipbHmW2STOFh5FWbhDWex-aLB5sD9LSo=");

@@ -24,7 +24,7 @@ def renderWithPermission(request, per, successRender, failedRender):
 
 
 def getUserInfo(request):
-    return UserInfo.objects.all().filter(user_id=request.user.id)
+    return UserInfo.objects.all().filter(user_id=request.user.id).values()
 
 
 def generateRandomString(length):

@@ -16,8 +16,7 @@ $("#loginForm").submit(function (event) {
   request.fail(function (jqXHR, textStatus, errorThrown) {
     // Log the error to the console
     $("#loading").removeClass("loadingShow");
-    const error = JSON.parse(jqXHR.responseText);
-    $("#loginError").html(error.message || "Login failed");
+    $("#loginError").html(jqXHR.responseText || "Login failed");
   });
 });
 
@@ -54,7 +53,7 @@ $("#signUpForm").submit(function (event) {
   });
 
   request.fail(function (jqXHR, textStatus, errorThrown) {
-	  console.log( textStatus, errorThrown)
+    console.log(textStatus, errorThrown);
     $.snackbar({
       content: errorThrown,
       timeout: 5000,

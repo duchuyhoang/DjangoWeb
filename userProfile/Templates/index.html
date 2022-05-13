@@ -34,7 +34,7 @@
       <div class="myAccountTab nav-item" role="presentation">
         <a
           href="?tab=order"
-          class="myAccountTabItem nav-link"
+          class="myAccountTabItem nav-link {% if tab == None or tab == 'order' %} active {% endif %}"
           data-bs-toggle="tab"
           role="tab"
           data-bs-target="#order"
@@ -61,7 +61,7 @@
           Password</a
         >
       </div>
-      <div class="myAccountTab">
+      {% comment %} <div class="myAccountTab">
         <a
           href="?tab=address"
           class="myAccountTabItem nav-link"
@@ -75,7 +75,7 @@
           <i class="fa fa-map-marker"></i>
           Address</a
         >
-      </div>
+      </div> {% endcomment %}
       <div class="myAccountTab">
         <a href="" class="myAccountTabItem">
           <i class="fas fa-sign-out-alt"></i>

@@ -15,8 +15,12 @@ def Login(request: HttpRequest):
     if(request.method == "POST"):
         user = authenticate(
             username=request.POST["email"], password=request.POST["password"])
+        if(user is None or user.is_anonymous is True):
+            return HttpResponseNotFound("Wrong email or password")
+
         login(request, user)
-        request.session['user'] = "huy"
+		# request.session.
+        # request.session['user'] = "huy"
         return JsonResponse({"message": "ok"})
     else:
         return HttpResponseNotFound("Wrong email or password")

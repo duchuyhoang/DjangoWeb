@@ -1,3 +1,5 @@
+{% load static %}
+
 <div id="accountZone">
   <div class="account d-flex">
     <a href="/checkout" class="checkout">Check out</a>
@@ -177,7 +179,7 @@
       </div>
       <div class="modal-body d-flex modal-lg">
         <div class="col-6 d-flex flex-column align-items-center">
-          <img src="./img/loginImg.jpg" alt="" width="80%" height="90%" />
+          <img src="{% static 'image/loginImg.jpg' %}" alt="" width="80%" height="90%" />
         </div>
         <div class="col-6">
           <form method="post" id="loginForm">

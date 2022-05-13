@@ -6,6 +6,9 @@ import random
 
 def renderWithPermission(request, per, successRender, failedRender):
     userPermission = permissions
+    # print('xxxx', permissions[per])
+    if(per not in permissions):
+        return failedRender
     requiredPermissionValue = permissions[per]
     maxPermissionValue = permissions["guest"]
     if("is_staff" in userPermission and request.user.is_staff is not True):

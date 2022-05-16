@@ -8,7 +8,6 @@ from datetime import datetime
 
 def index(request: HttpRequest):
     tab = request.GET.get('tab', None)
-    print(request.user.id)
     if(request.user.id is None):
         return HttpResponseRedirect('/home')
     else:

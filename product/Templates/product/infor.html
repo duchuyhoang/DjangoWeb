@@ -71,8 +71,8 @@
 					</div>
 					<div class="productAction">
 						<div class="d-flex">
-							<input type="number" id="productQuantity" class="mr-2" placeholder="0" min="1" max={{book.quantity}}
-								step="1">
+							<input type="number" id="productQuantity" class="mr-2" placeholder="0" min="1"
+								max={{book.quantity}} step="1">
 							<button id="addToCartBtn" value="CART_ADD_PRODUCT">ADD TO CART</button>
 						</div>
 						<div class="d-flex mt-3">
@@ -226,8 +226,6 @@
 							<div class="actualPrice">$30.00</div>
 						</div>
 					</div>
-
-
 				</div>
 			</div>
 
@@ -264,4 +262,41 @@
 	</div>
 </div>
 {% endblock %}
-{% block jsblock %}{% endblock %}
+{% block jsblock %}
+<script>
+	$("#addToCartBtn").click(() => {
+		$("#loading").addClass("loadingShow");
+		request = $.ajax({
+			url: "/cart/addToCart",
+			type: "post",
+			data: {
+				//   submit: $("#addToCartBtn").attr("value"),
+				quantity: $("#productQuantity").val(),
+				id_product: "{{id}}",
+			},
+			// processData: false,
+			// contentType: false,
+		});
+
+		request.done(function (response, textStatus, jqXHR) {
+			$("#loading").removeClass("loadingShow");
+			$.snackbar({
+				content: "Add product success . Wait page reload and login",
+				timeout: 5000,
+				style: "customSnackbar snackbar-success",
+			});
+			// window.location = "./myCart";
+			window.location.reload();
+		});
+
+		request.fail(function (jqXHR, textStatus, errorThrown) {
+			$.snackbar({
+				content: "Add Add fail!!!",
+				timeout: 5000,
+				style: "customSnackbar snackbar-error",
+			});
+			$("#loading").removeClass("loadingShow");
+		});
+	});
+</script>
+{% endblock %}

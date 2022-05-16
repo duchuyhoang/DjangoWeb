@@ -51,7 +51,9 @@ INSTALLED_APPS = [
 	'management',
     'BaseView',
     "database",
-	'userProfile'
+	'userProfile',
+	'cart',
+	'cartPage'
 ]
 
 MIDDLEWARE = [

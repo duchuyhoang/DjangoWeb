@@ -1,0 +1,113 @@
+{% extends 'base.html' %} {% load mathfilters %} {% load static %} 
+{% block cssblock %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/cartPage.css' %}" />
+{% endblock %} 
+{% block content %}
+<div class="container mt-5">
+  <h2 class="cartPageHeader">Your cart</h2>
+
+  <div class="table-wrapper">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" width="5%">#</th>
+          <th scope="col" width="15%">Product Image</th>
+          <th scope="col" width="20%">Product Name</th>
+          <th scope="col" width="12%">Price</th>
+          <th scope="col" width="10%">Quantity</th>
+          <th scope="col" width="12%">Total</th>
+          <th scope="col" width="10%">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for value in listItems %}
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>
+             {% if value.image == "" %}
+            <img src="{% static 'image/defaultImg.jpg' %}" alt="" />
+            {% else %}
+            <img src="/uploads{{value.image}}" alt="" />
+            {% endif %} 
+          </td>
+          <td>{{value.name}}</td>
+          <td>{{value.realPrice}}</td>
+          <td>
+            <input
+              id="{$id_input}"
+              type="number"
+              placeholder="0"
+              min="1"
+              max="10"
+              step="1"
+              onkeypress="return event.charCode >= 48"
+              value="{{value.quantity}}" class='quantityInput'>
+          </td>
+          <td>{{value.totalPrice}}</td>
+          <td>
+            <i class="far fa-trash-alt fa-3x deleteIcon"></i>
+          </td>
+        </tr>
+        {% endfor %}
+        <tr class="lastRow"></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <section class="container mt-4 mb-5">
+    <div class="row">
+      <div class="col-lg-8 col-md-12 col-12 p-0">
+        <div class="d-flex flex-column">
+          <div class="btnWrapper">
+            <button class="blackButton">Update cart</button>
+            <button class="blackButton">Continue shopping</button>
+          </div>
+          <div class="couponWrapper mt-2">
+            <h3>Coupon</h3>
+            <p>Enter your coupon code if you have one.</p>
+            <div class="d-flex">
+              <input
+                type="text"
+                class="baseInput couponInput"
+                placeholder="Coupon code "
+              />
+              <div class="blackButton">Apply coupon</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-12 col-12 p-0">
+        <div id="bill">
+          <h2>Cart total</h2>
+
+          <div class="billIntoItem">
+            <p class="itemName">Real price</p>
+            <p class="itemMoney">$127.00</p>
+          </div>
+
+          <div class="billIntoItem">
+            <p class="itemName">Subtotal</p>
+            <p class="itemMoney">$127.00</p>
+          </div>
+          <div class="billIntoItem">
+            <p class="itemName">Shipping</p>
+            <p class="itemMoney">$7.00</p>
+          </div>
+
+          <div class="billIntoItem itemTotal">
+            <p class="itemName">Total</p>
+            <p class="itemMoney">$215.00</p>
+          </div>
+          <button class="buttonMain">
+            <a href="./checkout">Proceed to checkout</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block jsblock %}
+{% endblock %}

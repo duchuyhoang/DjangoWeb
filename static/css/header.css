@@ -372,7 +372,8 @@ section.header-not-at-top {
 
 #myCart .cartItemContainer{
 max-height: 200px;
-overflow-y:auto
+overflow-y:auto;
+width: 100%;
 }
 
 #myCart .cartItem .cartItemImg {

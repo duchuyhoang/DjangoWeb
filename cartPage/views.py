@@ -10,7 +10,8 @@ def index(request: HttpRequest):
     listItems = []
     if(cart is not None):
         listItems = request.session.get("cart")["items"] if request.session.get("cart")[
-                                        "items"] is not None else []
+            "items"] is not None else []
+    print(listItems)
     return render(request, 'cart.html', {
         "listItems": listItems
     })

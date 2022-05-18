@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category,Book,Publisher,Author,Address,Order,Cart,Shipment,Payment,BookItem, BookImage, Province, Ward, District,UserInfo;
+from .models import Category,Book,Publisher,Author,Address,Order,Cart,Shipment,Payment,BookItem, BookImage, Province, Ward, District,UserInfo,OrderStatus;
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 
@@ -13,4 +13,4 @@ class UserAdmin(BaseUserAdmin):
 UserAdmin
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
-admin.site.register([Category,Book,Publisher,Author,Address,Order,Cart,Shipment,Payment,BookItem, BookImage, Province, Ward, District])
+admin.site.register([Category,Book,Publisher,Author,Address,Order,Cart,Shipment,Payment,BookItem, BookImage, Province, Ward, District,OrderStatus])

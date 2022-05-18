@@ -1,15 +1,10 @@
-{% extends 'base.html' %} {% load static %} 
-{% block cssblock %}
+{% extends 'base.html' %} {% load static %} {% block cssblock %}
 <link
   rel="stylesheet"
   type="text/css"
   href="{% static 'css/myAccount.css' %}"
 />
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'css/Home.css' %}"
-/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/Home.css' %}" />
 {% endblock %} {% block content %}
 <div class="container mt-5">
   <h2 class="myAccountHeader">My Account</h2>
@@ -34,7 +29,7 @@
       <div class="myAccountTab nav-item" role="presentation">
         <a
           href="?tab=order"
-          class="myAccountTabItem nav-link {% if tab == None or tab == 'order' %} active {% endif %}"
+          class="myAccountTabItem nav-link {% if tab == 'order' %} active {% endif %}"
           data-bs-toggle="tab"
           role="tab"
           data-bs-target="#order"
@@ -49,7 +44,7 @@
       <div class="myAccountTab nav-item" role="presentation">
         <a
           href="?tab=password"
-          class="myAccountTabItem nav-link {% if tab == None or tab == 'password' %} active {% endif %}"
+          class="myAccountTabItem nav-link {% if tab == 'password' %} active {% endif %}"
           data-bs-toggle="tab"
           role="tab"
           data-bs-target="#user_password"
@@ -61,7 +56,8 @@
           Password</a
         >
       </div>
-      {% comment %} <div class="myAccountTab">
+      {% comment %}
+      <div class="myAccountTab">
         <a
           href="?tab=address"
           class="myAccountTabItem nav-link"
@@ -75,7 +71,8 @@
           <i class="fa fa-map-marker"></i>
           Address</a
         >
-      </div> {% endcomment %}
+      </div>
+      {% endcomment %}
       <div class="myAccountTab">
         <a href="" class="myAccountTabItem">
           <i class="fas fa-sign-out-alt"></i>
@@ -171,13 +168,28 @@
         </button>
       </section>
       <section
-        class="tab-pane fade show"
+        class="tab-pane fade show {% if tab == None or tab == 'order' %} active {% endif %}"
         id="order"
         role="tabpanel"
         aria-labelledby="nav-order-tab"
       >
-        <div class="row justify-content-around">
+        <div class="row justify-content-center cart-container">
+          {% for order in listOrders %}
           <div class="card col-3">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{order.date}}</h6>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+          {% endfor %}
+
+          {% comment %} <div class="card col-3">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
@@ -200,19 +212,7 @@
               <a href="#" class="card-link">Card link</a>
               <a href="#" class="card-link">Another link</a>
             </div>
-          </div>
-          <div class="card col-3">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
-            </div>
-          </div>
+          </div> {% endcomment %}
         </div>
       </section>
       <section

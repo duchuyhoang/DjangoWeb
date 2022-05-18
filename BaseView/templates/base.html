@@ -57,6 +57,7 @@
       href="{% static 'css/loading.css' %}"
     />
     {% block cssblock %}{% endblock %}
+	{% block headJsBlock %}{% endblock %}
   </head>
   <body>
     {% include 'navbar.html' %} {% block content %}{% endblock %} 

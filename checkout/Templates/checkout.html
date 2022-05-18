@@ -1,0 +1,299 @@
+{% extends 'base.html' %}
+{% load mathfilters %}
+{% load static %} 
+{% block cssblock %} 
+<link rel="stylesheet" type="text/css" href="{% static 'css/checkout.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.bootstrap4.min.css" crossorigin="anonymous">
+
+{% endblock %}
+
+{% block headJsBlock %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sifter/0.5.4/sifter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microplugin/0.0.3/microplugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/selectize.min.js"></script>
+{% endblock %}
+{% block content %} 
+
+<section id="checkoutContainer" class="container mt-5 mb-3">
+    <h3>Checkout</h3>
+
+    <div class="row" id="billingContainer">
+        <div class="col-lg-6 col-12 pt-4">
+            <h3>BILLING DETAILS</h3>
+
+            <form action="" id="billingForm" method="POST">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="receiverFirstName">Receiver first name<span class="text-danger ml-1">*</span></label>
+                            <input type="text" class="baseInput clearBgColor" id="receiverFirstName" placeholder="" autocomplete="nope">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="receiverLastName">Receiver last name<span class="text-danger ml-1">*</span></label>
+                            <input type="text" class="baseInput clearBgColor" id="receiverLastName" placeholder="" autocomplete="nope">
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="receiverEmail">Receiver email<span class="text-danger ml-1">*</span></label>
+                            <input type="email" class="baseInput clearBgColor" id="receiverEmail" placeholder="" autocomplete="nope">
+                        </div>
+                    </div>
+
+                    <div class="row col-12 pr-0">
+                        <div class="col-12 pr-0">
+                            <div class="form-group">
+                                <label for="receiverCity">Receiver city<span class="text-danger ml-1">*</span></label>
+                                <select class="select p-0" id="receiverCity">
+                                    <option value="-1">Select a city</option>
+{% for province in listProvince  %}
+<option value={{province.id}}>{{province.name}}</option>
+{% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="receiverDistrict">Receiver district<span class="text-danger ml-1">*</span></label>
+                                <select class="select p-0" id="receiverDistrict">
+                                    <option value="-1">Select a district</option>
+                                    <select>
+                            </div>
+                        </div>
+
+                        <div class="col-6 pr-0">
+                            <div class="form-group">
+                                <label for="receiverWard">Receiver ward<span class="text-danger ml-1">*</span></label>
+                                <select class="select p-0" id="receiverWard">
+                                    <option value="-1">Select a ward</option>
+                                    <select>
+                            </div>
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <div class="form-group">
+                                <label for="receiverAddressNote">Receiver address note</label>
+                                <textarea name="" id="receiverAddressNote" class="w-100"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="receiverPhone">Receiver phone<span class="text-danger ml-1">*</span></label>
+                                <input type="text" class="baseInput clearBgColor" id="receiverPhone" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="col-6 pr-0">
+                            <div class="form-group">
+                                <label for="receiverPostcode">Postcode/zip*<span class="text-danger ml-1">*</span></label>
+                                <input type="text" class="baseInput clearBgColor" id="receiverPostcode" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <div class="form-group">
+                                <label for="receiverOrderNote">Receiver order note</label>
+                                <textarea name="" id="receiverOrderNote" class="w-100"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-6 ">
+                            <div class="form-group">
+                                <label for="receiverOrderType">Receiver order type</label>
+                                <select class="select baseInput rounded" id="receiverOrderType">
+									{% for orderType in listOrderType %}
+									<option value='{{orderType.idOrderType}}'>{{orderType.orderTypeName}}</option>
+									{% endfor %}
+                                    <select>
+                            </div>
+                        </div>
+
+                        <div class="col-6 pr-0">
+                            <div class="form-group">
+                                <label for="receiverPaymentType">Receiver payment type</label>
+                                <select class="select baseInput rounded" id="receiverPaymentType">
+                                    {% for paymentType in listPaymentType %}
+                                        <option value='{{paymentType.idPaymentType}}'>{{paymentType.paymentTypeName}}</option>
+                                    {% endfor %}
+                                    <select>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+            </form>
+
+
+        </div>
+        <div class="col-lg-6 col-12 pt-4 d-flex flex-column" id="orderDetail">
+            <h3>YOUR ORDER</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="tableHeader border-top-0">Product</th>
+                        <th scope="col" class="tableHeader border-top-0">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+{% for item in listItem %}
+<tr>
+<th scope='row' class='itemName'>{{item.name}} × {{item.quantity}}</th>
+<td>{{item.quantity|mul:item.price}} VNĐ</td>
+</tr>
+{% endfor %}
+
+                    <!-- <tr>
+                        <th scope="col" class="tableHeader">CART SUBTOTAL</th>
+                        <th scope="col" class="tableHeader">£215.00</th>
+                    </tr> -->
+                    <tr>
+                        <th scope="col" class="orderName">Order total</th>
+                        <th scope="col" class="orderValue">{{total}}<span class="ml-1" style="color:#ec4445!important">VNĐ</span></th>
+                    </tr>
+                </tbody>
+            </table>
+            <section class="checkoutButtonContainer">
+                <button class="checkoutButton" id="checkoutBtn">Place order</button>
+            </section>
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endblock %} {% block jsblock %}
+<script>
+  let listDistrict=JSON.parse(JSON.stringify({{listDistrict|safe}}));
+  let listProvince=JSON.parse(JSON.stringify({{listProvince|safe}}));
+  let listWard=JSON.parse(JSON.stringify({{listWard|safe}}));
+</script>
+<script>
+    const selectizeSetting = {
+        create: true,
+        sortField: "text",
+        showAddOptionOnCreate: false
+    }
+    let $receiverCitySelect, $receiverDistrictSelect, $receiverWardSelect = null;
+
+    $(document).ready(function() {
+        $receiverCitySelect = $("#receiverCity").selectize({
+            selectizeSetting,
+            onChange: (value) => {
+                $receiverDistrictSelect[0].selectize.clear();
+                $receiverDistrictSelect[0].selectize.clearOptions();
+
+
+                if (value != -1 && value != "") {
+                    listDistrict.filter((district) => district.province_id_id == value).map((district) => {
+                        $receiverDistrictSelect[0].selectize.addOption({
+                            text: district.name,
+                            value: district.id
+                        })
+                    })
+                }
+
+            }
+        })
+
+        $receiverDistrictSelect = $("#receiverDistrict").selectize({
+            selectizeSetting,
+            onChange: (value) => {
+
+                $receiverWardSelect[0].selectize.clear();
+                $receiverWardSelect[0].selectize.clearOptions();
+
+                // $receiverWardSelect[0].selectize.addOption({
+                //     text: "Select a ward",
+                //     value: -1
+                // })
+                // $receiverWardSelect[0].selectize.seValue(-1, 0);
+
+                if (value != -1 && value != "") {
+
+                    listWard.map((ward) => {
+                        if (ward.district_id == value){
+							$receiverWardSelect[0].selectize.addOption({
+                                text: ward.name,
+                                value: ward.id
+                            })
+						}
+                            
+                    })
+                }
+            }
+        })
+
+
+        $receiverWardSelect = $("#receiverWard").selectize({
+            selectizeSetting,
+        })
+
+
+    })
+
+
+    $("#checkoutBtn").click(function(event) {
+        event.preventDefault();
+        // $("#loading").addClass("loadingShow");
+
+        request = $.ajax({
+            url: "/checkout/check",
+            type: "post",
+            data: {
+                submit: $("#checkoutBtn").attr("value"),
+                receiverFirstName: $("#receiverFirstName").val(),
+                receiverLastName: $("#receiverLastName").val(),
+                receiverEmail: $("#receiverEmail").val(),
+                receiverCity: $receiverCitySelect[0].selectize.getValue(),
+                receiverDistrict: $receiverDistrictSelect[0].selectize.getValue(),
+                receiverWard: $receiverWardSelect[0].selectize.getValue(),
+                receiverAddressNote: $("#receiverAddressNote").val(),
+                receiverPhone: $("#receiverPhone").val(),
+                receiverPostcode: $("#receiverPostcode").val(),
+                receiverOrderNote: $("#receiverOrderNote").val(),
+                receiverOrderType: $("#receiverOrderType").val(),
+                receiverPayment: $("#receiverPaymentType").val()
+            },
+            // processData: false,
+            // contentType: false,
+        });
+
+        request.done(function(response, textStatus, jqXHR) {
+            $("#loading").removeClass("loadingShow");
+            $.snackbar({
+                content: "Add order success!!!",
+                timeout: 5000,
+                style: "customSnackbar snackbar-success"
+            });
+            window.location="./home";
+        });
+
+
+        request.fail(function(jqXHR, textStatus, errorThrown) {
+            const response = jqXHR.responseText
+			console.log(response)
+            $("#loading").removeClass("loadingShow");
+            $.snackbar({
+                content: "Something wrong",
+                timeout: 5000,
+                style: "customSnackbar snackbar-error"
+            });
+        });
+
+
+
+    })
+</script>
+{% endblock %}

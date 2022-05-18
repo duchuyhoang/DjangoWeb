@@ -57,3 +57,10 @@ body {
 #userDistrict+.selectize-control .selectize-dropdown{
 top:-470%
 }
+.card{
+	margin:5px 10px;
+}
+.cart-container{
+	height: 350px;
+	overflow-y: auto;
+}

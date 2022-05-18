@@ -8,10 +8,9 @@ from django.contrib.auth.models import User
 import datetime
 # Create your models here.
 
+# User._meta.get_field('email')._unique = True
+# User._meta.get_field('username')._unique = False
 
-from django.contrib.auth.models import User
-User._meta.get_field('email')._unique = True
-User._meta.get_field('username')._unique = False
 
 class UserRole(models.Model):
     idRole = models.AutoField(primary_key=True)
@@ -192,7 +191,7 @@ class Shipment(models.Model):
 
 class OrderStatus(models.Model):
     idStatus = models.AutoField(primary_key=True)
-    name: models.CharField(max_length=100)
+    name= models.CharField(max_length=100,default="")
 
     class Meta:
         db_table = "order_status"
@@ -212,6 +211,17 @@ class Payment(models.Model):
         return self.paymentTypeName
 
 
+class OrderType(models.Model):
+    idOrderType = models.AutoField(primary_key=True)
+    orderTypeName = models.CharField(max_length=100)
+
+    class Meta:
+        db_table = "order_type"
+
+    def __str__(self):
+        return self.orderTypeName
+
+
 class Order(models.Model):
     idOrder = models.AutoField(primary_key=True)
     date = models.TimeField(auto_now_add=True, blank=True)
@@ -222,6 +232,9 @@ class Order(models.Model):
     shipment = models.ForeignKey(
         Shipment, on_delete=models.SET_NULL, null=True)
     payment = models.ForeignKey(Payment, on_delete=models.SET_NULL, null=True)
+    receiverFirstName = models.CharField(max_length=50, null=True)
+    receiverLastName = models.CharField(max_length=50, null=True)
+    receiverEmail = models.EmailField(max_length=255, null=True)
 
     class Meta:
         db_table = "order"
@@ -245,7 +258,7 @@ class UserInfo(models.Model):
     phone = models.TextField(max_length=11)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     avatar = models.ImageField(null=True, upload_to="uploads/")
-    birthday = models.DateField(default=datetime.datetime.now())
+    birthday = models.DateField(auto_now_add=True)
 
     class Meta:
         db_table = "user_info"
